@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Theme_more upgrade function.
+ * Theme_gologo upgrade function.
  *
  * @param  int $oldversion The version we upgrade from.
  * @return bool
