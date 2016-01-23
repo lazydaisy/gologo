@@ -37,7 +37,7 @@ $THEME->parents = array('bootstrapbase');
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
-$THEME->sheets = array('gologo', 'settings');
+$THEME->sheets = array('font-awesome', 'glyphicon-font', 'gologo', 'settings');
 
 $THEME->supportscssoptimisation = false;
 
@@ -52,39 +52,39 @@ $THEME->layouts = array(
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'side-post'),
-        'defaultregion' => 'side-pre',
+        'regions' => array('side-pre', 'upper-level'),
+        'defaultregion' => 'upper-level',
     ),
     // Main course page.
     'course' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
+        'regions' => array('side-pre', 'upper-level', 'lower-level'),
+        'defaultregion' => 'lower-level',
         'options' => array('langmenu' => true),
     ),
     'coursecategory' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
+        'regions' => array('side-pre', 'upper-level', 'lower-level'),
+        'defaultregion' => 'lower-level',
     ),
     // Part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
+        'regions' => array('side-pre', 'lower-level'),
+        'defaultregion' => 'lower-level',
     ),
     // The site home page.
     'frontpage' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'upper-leval', 'lower-leval'),
-        'defaultregion' => 'lower-leval',
+        'regions' => array('side-pre', 'upper-level', 'footer-first', 'footer-last', 'lower-level'),
+        'defaultregion' => 'lower-level',
         'options' => array('nonavbar' => true),
     ),
     // Server administration scripts.
     'admin' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre', 'lower-leval'),
-        'defaultregion' => 'lower-leval',
+        'regions' => array('side-pre', 'lower-level'),
+        'defaultregion' => 'lower-level',
     ),
     // My dashboard page.
     'mydashboard' => array(
@@ -125,7 +125,7 @@ $THEME->layouts = array(
     ),
     // The pagelayout used when a redirection is occuring.
     'redirect' => array(
-        'file' => 'embedded.php',
+        'file' => 'redirect.php',
         'regions' => array(),
     ),
     // The pagelayout used for reports.

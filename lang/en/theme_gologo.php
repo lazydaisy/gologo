@@ -61,7 +61,10 @@ $string['invertdesc'] = 'Swaps text and background for the navbar at the top of 
 
 $string['pluginname'] = 'GoLogo';
 
-$string['region-lower-leval'] = 'Bottom';
-$string['region-side-post'] = 'Right';
+$string['region-footer-first'] = 'Footer First';
+$string['region-footer-last'] = 'Footer Last';
+$string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
-$string['region-upper-leval'] = 'Top';
+$string['region-lower-level'] = 'Bottom';
+
+$string['tryingtoredirectyou'] = 'We are trying to redirect you. Thank you for your patience.';

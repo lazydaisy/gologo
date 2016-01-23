@@ -1,5 +1,17 @@
 /* GoLogo Theme CSS
 -------------------------*/
+body {
+    font-family: 'Tempus Sans ITC', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.path-calendar .maincalendar .calendar-controls .current,
+.path-calendar .maincalendar .header {
+    color: #3291D3;
+    font-family: 'Agency FB';
+}
+
+
 #page-header {
     background-image: url([[setting:brandlogo]]);
     background-repeat: no-repeat;
@@ -11,24 +23,159 @@
     background-position: right top;
 }
 
-a.brand {
-    background-image: url([[setting:brandicon]]);
-    background-position: 20px 50%;
-    background-repeat: no-repeat;
-    display: block;
-    height: 20px;
-    width: 130px;
-}
-.dir-rtl a.brand {
-    background-position: right;
-}
-
-
 .jsenabled .usermenu .moodle-actionmenu.show .menu {
-    padding: 0
+    padding: 0;
 }
 
 .jsenabled .usermenu .moodle-actionmenu > .menu .filler {
-    margin: 0 1px
+    margin: 0 1px;
 }
 
+/* Calendar
+------------------------------------------*/
+.pagelayout-standard .block_fake .header h2 {
+    text-align: center;
+}
+
+.pagelayout-standard .block_fake .minicalendarblock1,
+.pagelayout-standard .block_fake .minicalendarblock2,
+.pagelayout-standard .block_fake .minicalendarblock3 {
+
+    border: 1px solid #ddd;
+    height: 215px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.maincalendar .heightcontainer {
+    padding-left: 25px;
+}
+
+.maincalendar .heightcontainer h2:before {
+    content: "\f073";
+    margin-right: 5px;
+    font-family: FontAwesome;
+}
+
+.pagelayout-standard .block_adminblock {
+    margin-top: 200px;
+    text-align: center;
+    background: red;
+}
+
+.pagelayout-admin #page-header,
+.pagelayout-standard #page-header {
+    background-image: none;
+    padding-top: 0;
+}
+
+.upper-level-only #region-main,
+.lower-level-only #region-main {
+    width: 100%;
+}
+
+.upper-level-only #block-region-lower-level,
+.lower-level-only #block-region-upper-level {
+    display: none;
+}
+
+.pagelayout-redirect #page-content {
+    background-color: rgba(50, 145, 211, 15%);
+    background-image: url([[pix:theme|compass]]);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 300px;
+    margin: 20px auto;
+    text-align: center;
+    height: 600px;
+    width: 100%;
+}
+
+.pagelayout-redirect #page-content .continuebutton {
+    margin-top: 20px;
+}
+.pagelayout-redirect #page-content .continuebutton a:link {
+    color: white;
+}
+
+/* Forum pinned icons - just a bit of fun!
+------------------------------------------*/
+a#p1, a#p2, a#p3, a#p4 {
+    border-radius: 50% 50% 6%;
+    border-width: 1px;
+    border-style: solid;
+    border: color: black;
+    display: block;
+    height: 10px;
+    width: 10px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 5px grey;
+
+}
+a#p1 { background-color: red;}
+
+a#p2 { background-color: green;}
+
+a#p3 { background-color: blue;}
+
+a#p4 { background-color: yellow;}
+
+/* Blocks
+------------------------------------------*/
+
+.block {
+    margin-bottom: 0;
+    padding-top: 0;
+    background-color: white;
+    border: 0 none;
+}
+.block .header {
+    padding: 10px 0;
+    background-color: #3291D3;
+}
+.block .header h2 {
+    color: white;
+    font-size: 130%;
+}
+
+.block .calendar_filters ul {
+    list-style: outside none none;
+    margin: 15px;
+    text-align: center;
+}
+
+.block .calendar_filters ul li {
+    display: inline;
+    margin: 10px 15px;
+}
+
+
+/* Styles for Redirect Message
+------------------------------------------*/
+
+/** To style "All caches were purged" use the following CSS: **/
+
+
+.pagelayout-redirect #page-content .alert.alert-block.alert-info { width: 75%; margin: 0 auto; }
+
+
+/** To style "We are trying to redirect you. Thank you for your patience" use the following CSS.**/
+
+
+#page-content .continuebutton { text-align: center; }
+
+#page-navbar,
+.breadcrumb-nav,
+.breadcrumb-button input[type="submit"] {
+    margin: 0;
+}
+
+/* Dock
+------------------------------------------*/
+
+#dockeditempanel .dockeditempanel_hd h2 {
+    float: left;
+}
+.dir-rtl #dockeditempanel .dockeditempanel_hd h2 {
+    float: right;
+}

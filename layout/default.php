@@ -24,7 +24,7 @@
  * http://docs.moodle.org/dev/Themes_2.0
  *
  * @package   theme_gologo
- * @copyright 2013 Moodle, moodle.org
+ * @copyright 2016 byLazyDaisy.uk
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,12 +32,16 @@
 $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 
 // Set default (LTR) layout mark-up for a three column page.
-$regionmain = 'span8 pull-right';
-$sidepre = 'span4 desktop-first-column';
+$regionmain = 'span9 pull-right';
+$sidepre = 'span3 desktop-first-column';
+$footerfirst = 'span6 desktop-first-column';
+$footerlast = 'span6';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
-    $regionmain = 'span8';
-    $sidepre = 'span4 pull-right';
+    $regionmain = 'span9';
+    $sidepre = 'span3 pull-right';
+    $footerfirst = 'span6 pull-right';
+    $footerlast = 'span6 desktop-first-column';
 }
 
 echo $OUTPUT->doctype() ?>
@@ -75,7 +79,7 @@ echo $OUTPUT->doctype() ?>
 
     <div class="row-fluid">
 
-    <?php echo $OUTPUT->blocks('upper-leval', 'span-12'); ?>
+    <?php echo $OUTPUT->blocks('upper-level', 'span-12'); ?>
 
     </div>
 
@@ -94,17 +98,25 @@ echo $OUTPUT->doctype() ?>
 
         <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
         <div class="row-fluid">
-        <div id="footer-first" class="span6 desktop-first-column">
-            <?php echo $OUTPUT->blocks('lower-leval', 'span12'); ?>
+        <div id="footer-first" class="<?php echo $footerfirst ?>">
+            <?php echo $OUTPUT->blocks('footer-first', 'span12'); ?>
         </div>
-        <div id="footer-last" class="span6 pull-right">
+
+        <div id="footer-last" class="<?php echo $footerlast ?>">
+            <?php echo $OUTPUT->blocks('footer-last', 'span12'); ?>
+        </div>
+
+        <div class="row-fluid">
+            <?php echo $OUTPUT->blocks('lower-level', 'span-12'); ?>
+        </div>
+
         <?php {
             echo $OUTPUT->page_doc_link();
             echo $OUTPUT->login_info();
             echo $html->footnote;
             echo $OUTPUT->home_link();
         } ?>
-        </div>
+
         </div>
     <?php echo $OUTPUT->standard_footer_html() ?>
 </div>
