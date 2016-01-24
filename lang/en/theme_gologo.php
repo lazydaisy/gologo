@@ -31,7 +31,7 @@ $string['choosereadme'] = '
 <div class="well">
 <h3>About</h3>
 <p>GoLogo is a modified Moodle Bootstrap 2.3.2 theme byLazyDaisy.uk.</p>
-<h3>Parents</h3>
+<h3>Parents</h3>GoLogo is built for Moodle 3.1+ using Bootstrapbase as the parent theme.
 <h3>Theme Credits</h3>
 <p>This theme is based upon the Bootstrap theme, which was created for Moodle 2.5, with the help of:<br>
 Bas Brand, David Scotson, Stuart Lamour, Mark Aberdour, and Paul Hibbitts.</p>
@@ -46,7 +46,10 @@ $string['brandicon'] = 'Brand icon';
 $string['brandicondesc'] = 'The Brand icon, if uploaded here, will be displayed in the top navbar of every page.';
 
 $string['brandlogo'] = 'Brand Logo';
-$string['brandlogodesc'] = 'The Brand logo, if uploaded here, will be displayed just above the title of every page.';
+$string['brandicondesc'] = 'This setting allows you to add a small \'Brand\' icon into the top navbar. The icon can not be more than 35px high, but can be any length up 150px. To adjust the width, add the following CSS rule to the CSS text area lower down the page. <br>
+<pre>.brand { width: 100px; }</pre>
+<br>
+Amend the value to the width of your brand image.';
 
 $string['configtitle'] = 'GoLogo Settings';
 

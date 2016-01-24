@@ -34,14 +34,10 @@ $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 // Set default (LTR) layout mark-up for a three column page.
 $regionmain = 'span9 pull-right';
 $sidepre = 'span3 desktop-first-column';
-$footerfirst = 'span6 desktop-first-column';
-$footerlast = 'span6';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
     $regionmain = 'span9';
     $sidepre = 'span3 pull-right';
-    $footerfirst = 'span6 pull-right';
-    $footerlast = 'span6 desktop-first-column';
 }
 
 echo $OUTPUT->doctype() ?>
@@ -60,7 +56,7 @@ echo $OUTPUT->doctype() ?>
 <header role="banner" class="navbar navbar-fixed-top<?php echo $html->navbarclass ?> moodle-has-zindex">
     <nav role="navigation" class="navbar-inner">
         <div class="container-fluid">
-            <?php echo $html->branding; ?>
+            <?php echo $html->brandicon; ?>
             <?php echo $OUTPUT->navbar_button(); ?>
             <?php echo $OUTPUT->user_menu(); ?>
             <div class="nav-collapse collapse">

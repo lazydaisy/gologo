@@ -89,8 +89,8 @@ $THEME->layouts = array(
     // My dashboard page.
     'mydashboard' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
+        'regions' => array('side-pre', 'lower-level'),
+        'defaultregion' => 'lower-level',
         'options' => array('langmenu' => true),
     ),
     // My public page.
@@ -131,8 +131,8 @@ $THEME->layouts = array(
     // The pagelayout used for reports.
     'report' => array(
         'file' => 'default.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
+        'regions' => array('side-pre', 'lower-level'),
+        'defaultregion' => 'lower-leval',
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(

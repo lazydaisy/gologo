@@ -163,9 +163,9 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->navbarclass .= ' navbar-inverse';
     }
 
-    $return->branding = html_writer::link($CFG->wwwroot, '<i class="fa fa-home"></i>', array('class' => 'brand'));
+    $return->brandicon = html_writer::link($CFG->wwwroot, '<i class="fa fa-home"></i>', array('class' => 'brand'));
     if (!empty($page->theme->settings->brandicon)) {
-        $return->branding = html_writer::link($CFG->wwwroot, '', array('class' => 'brand'));
+        $return->brandicon = html_writer::link($CFG->wwwroot, '', array('class' => 'brand'));
     }
 
     $return->footnote = '';

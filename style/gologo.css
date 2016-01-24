@@ -2,6 +2,7 @@
 -------------------------*/
 body {
     font-family: 'Tempus Sans ITC', sans-serif;
+    font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -11,17 +12,14 @@ h1, h2, h3, h4, h5, h6,
     font-family: 'Agency FB';
 }
 
+.navbar .brand {
+    color: #3291D3;
+}
 
 #page-header {
-    background-image: url([[setting:brandlogo]]);
-    background-repeat: no-repeat;
-    background-position: left top;
-    padding-top: 200px;
+    padding-top: 0;
 }
 
-.dir-rtl #page-header {
-    background-position: right top;
-}
 
 .jsenabled .usermenu .moodle-actionmenu.show .menu {
     padding: 0;
@@ -42,7 +40,7 @@ h1, h2, h3, h4, h5, h6,
 .pagelayout-standard .block_fake .minicalendarblock3 {
 
     border: 1px solid #ddd;
-    height: 215px;
+    height: 200px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -58,13 +56,14 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .pagelayout-standard .block_adminblock {
-    margin-top: 200px;
+    margin-top: 300px;
     text-align: center;
-    background: red;
 }
 
 .pagelayout-admin #page-header,
-.pagelayout-standard #page-header {
+.pagelayout-incourse #page-header,
+.pagelayout-standard #page-header,
+.pagelayout-report #page-header {
     background-image: none;
     padding-top: 0;
 }
@@ -75,7 +74,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .upper-level-only #block-region-lower-level,
-.lower-level-only #block-region-upper-level {
+.lower-level-only #block-region-upper-level,
+.empty-region-upper-leval #block-region-upper-level,
+.empty-region-lower-level #block-region-lower-level {
     display: none;
 }
 
@@ -91,10 +92,17 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
 }
 
+.pagelayout-redirect #page-content .alert,
+.pagelayout-redirect #page-content .continuebutton {
+    font-size: 140%;
+    font-weight: 600;
+}
+
 .pagelayout-redirect #page-content .continuebutton {
     margin-top: 20px;
 }
-.pagelayout-redirect #page-content .continuebutton a:link {
+.pagelayout-redirect #page-content .continuebutton a:link,
+.pagelayout-redirect #page-content .continuebutton a:visited {
     color: white;
 }
 
@@ -178,4 +186,17 @@ a#p4 { background-color: yellow;}
 }
 .dir-rtl #dockeditempanel .dockeditempanel_hd h2 {
     float: right;
+}
+
+
+/* Experimental
+-------------------------*/
+.block .header .commands img.iconsmall {
+    background-color: #F3F9FD; /* adds light background */
+    border: 2px solid #1A4868; /* adds 2px dark border */
+    border-radius: 5px; /* adds rounded corners in modern browsers */
+    height: 12px;
+    margin-right: 3px;
+    padding: 2px; /* adds padding to icon */
+    width: 12px;
 }
