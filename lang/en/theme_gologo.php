@@ -46,7 +46,7 @@ $string['brandicon'] = 'Brand icon';
 $string['brandicondesc'] = 'The Brand icon, if uploaded here, will be displayed in the top navbar of every page.';
 
 $string['brandlogo'] = 'Brand Logo';
-$string['brandicondesc'] = 'This setting allows you to add a small \'Brand\' icon into the top navbar. The icon can not be more than 35px high, but can be any length up 150px. To adjust the width, add the following CSS rule to the CSS text area lower down the page. <br>
+$string['brandlogodesc'] = 'This setting allows you to add a small \'Brand\' icon into the top navbar. The icon can not be more than 35px high, but can be any length up 150px. To adjust the width, add the following CSS rule to the CSS text area lower down the page. <br>
 <pre>.brand { width: 100px; }</pre>
 <br>
 Amend the value to the width of your brand image.';
@@ -66,8 +66,8 @@ $string['pluginname'] = 'GoLogo';
 
 $string['region-footer-first'] = 'Footer First';
 $string['region-footer-last'] = 'Footer Last';
+$string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
-$string['region-lower-level'] = 'Bottom';
 
 $string['tryingtoredirectyou'] = 'We are trying to redirect you. Thank you for your patience.';

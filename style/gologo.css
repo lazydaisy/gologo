@@ -3,6 +3,8 @@
 body {
     font-family: 'Tempus Sans ITC', sans-serif;
     font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -108,7 +110,8 @@ h1, h2, h3, h4, h5, h6,
 
 /* Forum pinned icons - just a bit of fun!
 ------------------------------------------*/
-a#p1, a#p2, a#p3, a#p4 {
+/*
+a#p1 {
     border-radius: 50% 50% 6%;
     border-width: 1px;
     border-style: solid;
@@ -118,15 +121,17 @@ a#p1, a#p2, a#p3, a#p4 {
     width: 10px;
     margin-bottom: 10px;
     box-shadow: 5px 5px 5px grey;
-
+    background-color: #3291D3;
 }
-a#p1 { background-color: red;}
-
-a#p2 { background-color: green;}
-
-a#p3 { background-color: blue;}
-
-a#p4 { background-color: yellow;}
+------------------------------------------*/
+a#p1:before {
+    content: "\f08d";
+    font-family: FontAwesome;
+    color: #3291D3;
+    font-size: 130%;
+    font-weight: 600;
+    text-shadow: 1px 1px red;
+}
 
 /* Blocks
 ------------------------------------------*/
@@ -199,4 +204,121 @@ a#p4 { background-color: yellow;}
     margin-right: 3px;
     padding: 2px; /* adds padding to icon */
     width: 12px;
+}
+
+
+.course_category_tree .category > .content {
+    padding-left: 0; // Removes left padding in category combo course list.
+}
+
+.dir-rtl .course_category_tree .category > .content {
+    padding-right: 0; // Removes right padding in category combo course list.
+}
+
+.coursebox .content .summary,
+.coursebox .content .coursecat {
+    background-color: #fefefe;
+    float: none;
+    margin: 0 auto;
+    padding: 20px 15px;
+    width: 90%;
+}
+
+.dir-rtl .coursebox .content .summary,
+.dir-rtl .coursebox .content .coursecat {
+    float: right; // Removes float property.
+}
+
+table#form td.submit,
+.form-buttons,
+.path-admin .buttons,
+#fitem_id_submitbutton,
+.fp-content-center form + div,
+div.backup-section + form,
+#fgroup_id_buttonar {
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#page-mod-forum-discuss .discussioncontrols .discussioncontrol,
+#page-mod-forum-discuss .singlebutton div {
+    margin: 0;
+}
+
+#page-mod-forum-discuss input[type="submit"] {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+#page-mod-forum-discuss.dir-rtl input[type="submit"] {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+#page-mod-forum-discuss .select.autosubmit.singleselect {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+#page-mod-forum-discuss.dir-rtl .select.autosubmit.singleselect {
+    margin-left: 5px;
+    margin-right: 0;
+}
+#page-mod-forum-discuss .discussioncontrol.displaymode {
+    padding-right: 0;
+}
+#page-mod-forum-discuss.dir-rtl .discussioncontrol.displaymode {
+    padding-left: 0;
+}
+/* Eric Mayer's Experiment Banner CSS3
+------------------------------------------*/
+dl {
+    margin-bottom: 3em;
+}
+html.banner {
+    background: white url("") no-repeat scroll right bottom;
+    border: 1px solid gray;
+    color: black;
+    font-size: 10px;
+    margin: 1em 0 0 15px;
+    padding: 0;
+    position: relative;
+}
+div.banner h1 {
+    border-width: 0;
+    color: #c99;
+    font: italic bold 100px Times,"Times New Roman",TimesNR,serif;
+    left: -15px;
+    margin: 0;
+    position: absolute;
+    top: -10px;
+}
+div.banner h2 {
+    border-width: 0;
+    color: #033;
+    font: bold 18px Arial,sans-serif;
+    left: 10px;
+    letter-spacing: 1px;
+    margin: 0;
+    position: absolute;
+    top: 27px;
+}
+div.banner span {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-image: url("pix/whitescreen.gif");
+    border-color: gray;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    bottom: 0;
+    color: #535;
+    font: italic 9px/9px Verdana,sans-serif;
+    margin: 0;
+    padding: 2px 4px;
+    position: absolute;
+    right: 0;
 }
