@@ -66,8 +66,11 @@ $string['pluginname'] = 'GoLogo';
 
 $string['region-footer-first'] = 'Footer First';
 $string['region-footer-last'] = 'Footer Last';
+$string['region-home-content'] = 'Home-content';
+$string['region-home-footer'] = 'Home-footer';
+$string['region-home-header'] = 'Home header';
+$string['region-home-main'] = 'Home-main';
 $string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
-$string['region-side-pre'] = 'Left';
-
 $string['tryingtoredirectyou'] = 'We are trying to redirect you. Thank you for your patience.';
+$string['region-side-pre'] = 'Left';

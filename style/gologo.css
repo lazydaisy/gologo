@@ -298,3 +298,9 @@ div.banner span {
     position: absolute;
     right: 0;
 }
+/* Bootstrap undo
+------------------------------------------*/
+.hero-unit {
+    background-color: white;
+    padding: 60px 40px;
+}
