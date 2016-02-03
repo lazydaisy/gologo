@@ -75,9 +75,9 @@ $THEME->layouts = array(
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'default.php',
-        'regions' => array('side-pre', 'upper-level', 'footer-first', 'footer-last', 'lower-level'),
-        'defaultregion' => 'lower-level',
+        'file' => 'homepage.php',
+        'regions' => array('side-pre', 'home-header', 'home-main', 'home-content', 'home-footer'),
+        'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
     ),
     // Server administration scripts.
