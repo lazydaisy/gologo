@@ -132,7 +132,7 @@ $THEME->layouts = array(
     'report' => array(
         'file' => 'default.php',
         'regions' => array('side-pre', 'lower-level'),
-        'defaultregion' => 'lower-leval',
+        'defaultregion' => 'lower-level',
     ),
     // The pagelayout used for safebrowser and securewindow.
     'secure' => array(

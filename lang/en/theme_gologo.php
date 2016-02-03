@@ -43,18 +43,17 @@ Bas Brand, David Scotson, Stuart Lamour, Mark Aberdour, and Paul Hibbitts.</p>
 </div></div>';
 
 $string['brandicon'] = 'Brand icon';
-$string['brandicondesc'] = 'The Brand icon, if uploaded here, will be displayed in the top navbar of every page.';
+$string['brandicondesc'] = 'This setting allows you to add a small \'Brand\' icon into the top navbar. The icon should be no more than 35px in height, and up to 150px in width. To adjust the styles for this icon add the following CSS rule to the Custom CSS text area lower down this settings page, where \'125px\' represents the width of your brand icon.<br>
+<pre>a.brand { width: 125px; }</pre>';
 
 $string['brandlogo'] = 'Brand Logo';
-$string['brandlogodesc'] = 'This setting allows you to add a small \'Brand\' icon into the top navbar. The icon can not be more than 35px high, but can be any length up 150px. To adjust the width, add the following CSS rule to the CSS text area lower down the page. <br>
-<pre>.brand { width: 100px; }</pre>
-<br>
-Amend the value to the width of your brand image.';
+$string['brandlogodesc'] = 'This setting allows you to add a \'Brand\' logo just above the title of the page. The logo can be any width but no more than 200px in height.To adjust the styles for the height of your logo, if more than 200px, please add the following CSS rule to the Custom CSS text area lower down this settings page, where \'225px\' represents the height of your logo. <br>
+<pre>#page-header { padding-top: 225px; }</pre>';
 
 $string['configtitle'] = 'GoLogo Settings';
 
 $string['customcss'] = 'Custom CSS';
-$string['customcssdesc'] = 'All the CSS rules you add in this area will be active in the GoLogo theme only.';
+$string['customcssdesc'] = 'This setting allows you to add your Custom CSS rules for the Brand icon and logo, if needed. These CSS styles relate to the GoLogo theme only.';
 
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
@@ -75,4 +74,3 @@ $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
 
 $string['tryingtoredirectyou'] = 'We are trying to redirect you. Thank you for your patience.';
-

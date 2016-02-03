@@ -6,7 +6,7 @@
 -------------------------*/
 a.brand {
     background-image: url([[setting:brandicon]]);
-    background-position: 0 50%;
+    background-position: 20px 50%;
     background-repeat: no-repeat;
     color: #3291D3;
     display: block;
@@ -16,9 +16,6 @@ a.brand {
     width: 20px;
 
 }
-.dir-rtl a.brand {
-    background-position: 100% 50%;
-}
 
 /* Brand Logo Styles
 -------------------------*/
@@ -26,6 +23,7 @@ a.brand {
     background-image: url([[setting:brandlogo]]);
     background-repeat: no-repeat;
     background-position: left top;
+    padding-top: 200px;
 }
 
 .dir-rtl #page-header {

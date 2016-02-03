@@ -8,6 +8,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
+.hero-unit h1,
 .path-calendar .maincalendar .calendar-controls .current,
 .path-calendar .maincalendar .header {
     color: #3291D3;
@@ -56,6 +57,9 @@ h1, h2, h3, h4, h5, h6,
     margin-right: 5px;
     font-family: FontAwesome;
 }
+
+/* Page layout
+------------------------------------------*/
 
 .pagelayout-standard .block_adminblock {
     margin-top: 300px;
@@ -175,8 +179,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
-/* Experimental
--------------------------*/
+/* Experimental - Frontpage
+-----------------------------*/
 .block .header .commands img.iconsmall {
     background-color: #F3F9FD; /* adds light background */
     border: 2px solid #1A4868; /* adds 2px dark border */
@@ -252,57 +256,19 @@ div.backup-section + form,
 #page-mod-forum-discuss.dir-rtl .discussioncontrol.displaymode {
     padding-left: 0;
 }
-/* Eric Mayer's Experiment Banner CSS3
+
+/* Footer
 ------------------------------------------*/
-dl {
-    margin-bottom: 3em;
+#block-region-home-footer {
+    text-align: left;
 }
-html.banner {
-    background: white url("") no-repeat scroll right bottom;
-    border: 1px solid gray;
-    color: black;
-    font-size: 10px;
-    margin: 1em 0 0 15px;
-    padding: 0;
-    position: relative;
+
+#block-region-home-footer .thumbnail h3,
+#block-region-home-footer .thumbnail p {
+    text-align: center;
 }
-div.banner h1 {
-    border-width: 0;
-    color: #c99;
-    font: italic bold 100px Times,"Times New Roman",TimesNR,serif;
-    left: -15px;
-    margin: 0;
-    position: absolute;
-    top: -10px;
-}
-div.banner h2 {
-    border-width: 0;
-    color: #033;
-    font: bold 18px Arial,sans-serif;
-    left: 10px;
-    letter-spacing: 1px;
-    margin: 0;
-    position: absolute;
-    top: 27px;
-}
-div.banner span {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-image: url("pix/whitescreen.gif");
-    border-color: gray;
-    border-image: none;
-    border-style: solid;
-    border-width: 1px 0 0 1px;
-    bottom: 0;
-    color: #535;
-    font: italic 9px/9px Verdana,sans-serif;
-    margin: 0;
-    padding: 2px 4px;
-    position: absolute;
-    right: 0;
-}
+
+
 /* Bootstrap undo
 ------------------------------------------*/
 .hero-unit {
