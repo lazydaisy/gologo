@@ -78,8 +78,13 @@ h1, h2, h3, h4, h5, h6,
 .upper-level-only #block-region-lower-level,
 .lower-level-only #block-region-upper-level,
 .empty-region-upper-leval #block-region-upper-level,
-.empty-region-lower-level #block-region-lower-level {
+.empty-region-lower-level #block-region-lower-level,
+.empty-region-home-content #home-content {
     display: none;
+}
+
+.empty-region-home-content #home-main {
+    width: 100%;
 }
 
 .pagelayout-redirect #page-content {
