@@ -24,8 +24,8 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = 'theme_gologo';
 $plugin->maturity     = MATURITY_STABLE;
-$plugin->release      = '1.0 (Build: 20160116)';
-$plugin->requires  = 2016011400;
+$plugin->release      = '2.0 (Build: 20160203)';
+$plugin->requires  = 2016020300;
 $plugin->version   = 2016011600;
 $plugin->dependencies = array(
     'theme_bootstrapbase'  => 2015111600,
