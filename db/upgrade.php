@@ -15,62 +15,35 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme GoLogo upgrade.
+ * Theme Gologo upgrade.
  *
  * @package    theme_gologo
- * @copyright  2016 LazyDaisy.uk
+ * @copyright  2016 byLazyDaisy.uk
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Theme_gologo upgrade function.
+ * Theme_more upgrade function.
  *
  * @param  int $oldversion The version we upgrade from.
  * @return bool
  */
 function xmldb_theme_gologo_upgrade($oldversion) {
-    global $CFG, $DB, $OUTPUT;
+    global $CFG;
 
-    $dbman = $DB->get_manager();
+    if ($oldversion < 2016020300) {
 
-    if ($oldversion < 2016011600) {
-        // Migrate logo URL.
-        $logo = get_config('theme_gologo', 'brandlogo');
-        if ($logo === '') {
-            // No logo means nothing to do.
+        // Set the default settings as they might already be set.
+        set_config('gologocolor', '#3291D3', 'theme_gologo');
 
-        } else if ($logo = clean_param($brandlogo, PARAM_URL)) {
-            require_once("$CFG->libdir/filelib.php");
-            if ($content = download_file_content($brandlogo)) {
-                $filename = preg_replace('/^.*\//', '', $brandlogo);
-                if (!$filename = clean_param($filename, PARAM_FILE)) {
-                    // Some name is better than no name...
-                    $filename = 'brandlogo.jpg';
-                }
-                $fs = get_file_storage();
-                $record = array(
-                    'contextid' => context_system::instance()->id, 'component' => 'theme_gologo',
-                    'filearea' => 'brandlogo', 'itemid'=>0, 'filepath'=>'/', 'filename'=>$filename);
-                $fs->create_file_from_string($record, $content);
-                set_config('brandlogo', '/'.$filename, 'theme_gologo');
-                unset($content);
-
-            } else {
-                unset_config('theme_gologo', 'brandlogo');
-            }
-        } else {
-            // Prompt for new logo, the old setting was invalid.
-            unset_config('theme_gologo', 'brandlogo');
-        }
-
-        upgrade_plugin_savepoint(true, 2016011601, 'theme', 'gologo');
+        upgrade_plugin_savepoint(true, 2016020301, 'theme', 'gologo');
     }
-
 
     // Moodle v3.1.0 release upgrade line.
     // Put any upgrade step following this.
 
     return true;
 }
+

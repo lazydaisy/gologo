@@ -1,0 +1,68 @@
+/**
+ * Import all the rules from the parent.
+ */
+ @import "../../bootstrapbase/less/moodle.less";
+
+// Set theme colours.
+
+@gologoColor:                       #3291D3;
+@navbarLinkColor:                   @white;
+@gologoColorHover:                  lighten(@gologoColor, 25%);
+@navbarDividerDarker:               darken(@gologoColor, 25%);
+@navbarDividerLighter:              @gologoColorHover;
+@navbarLinkColorHover:              @gologoColorHover;
+@btnPrimaryBackground:              @gologoColor;
+@btnPrimaryBackgroundHighlight:     @gologoColorHover;
+
+@hrBorder:                          @tableBackgroundAccent;
+
+@dropdownLinkColor:                 @gologoColor;
+@dropdownLinkColorHover:            @navbarLinkColor;
+@dropdownLinkBackgroundHover:       @gologoColor;
+
+@navbarBorder:                      @navbarDividerDarker;
+@navbarBackgroundHighlight:         @navbarDividerLighter;
+
+h1, h2, h3, h4, h5, h6,
+.hero-unit h1,
+.path-calendar .maincalendar .calendar-controls .current,
+.path-calendar .maincalendar .header {
+    color: @gologoColor;
+}
+.pagelayout-admin #notice {
+    border-color: @gologoColor;
+}
+
+.block .header {
+    background-color: @gologoColor;
+}
+
+.navbar .brand {
+    color: @gologoColor;
+}
+#page-navbar,
+.page-context-header {
+    background-color: @white;
+}
+.pagelayout-standard .page-context-header .page-header-image,
+.pagelayout-mydashboard .page-context-header .page-header-image,
+.pagelayout-mypublic .page-context-header .page-header-image {
+    background-color: @gologoColor;
+    border: 3px solid @gologoColorHover;
+    box-shadow: 1px 1px 3px 20px @gologoColorHover;
+}
+
+
+#page-navbar {
+    background: @gologoColor;
+}
+.btn {
+    color: @gologoColor;
+}
+i.fa {
+    color: @gologoColor;
+}
+.userprofile .profile_tree section h3 {
+    background-color: @gologoColor;
+    color: @white;
+}

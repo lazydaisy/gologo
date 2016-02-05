@@ -34,14 +34,14 @@ $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 // Set default (LTR) layout mark-up for a three column page.
 $regionmain = 'span9 pull-right';
 $sidepre = 'span3 desktop-first-column';
-$homemain = 'span6 desktop-first-colomn';
-$homecontent= 'span6 pull-right';
+$homemain = 'span7 desktop-first-colomn';
+$homecontent= 'span5 pull-right';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
     $regionmain = 'span9 desktop-first-column';
     $sidepre = 'span3 pull-right';
-    $homemain = 'span6 pull-right';
-    $homecontent = 'span6 desktop-first-column';
+    $homemain = 'span7 pull-right';
+    $homecontent = 'span5 desktop-first-column';
 }
 
 echo $OUTPUT->doctype() ?>

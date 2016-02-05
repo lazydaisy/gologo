@@ -111,7 +111,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                    '<img style="width:100px;height:30px" src="' . $this->pix_url('moodlelogo') . '" alt="moodlelogo" /></a></div>';
 
         } else if ($this->page->course->id == $SITE->id || strpos($this->page->pagetype, 'course-view') === 0) {
-            return '<div class="homelink"><a class="btn btn-small" href="' . $CFG->wwwroot . '/"><i class="icon-home"></i>&nbsp;&nbsp;' .
+            return '<div class="homelink"><a class="btn btn-small" href="' . $CFG->wwwroot . '/"><i class="fa fa-home"></i>&nbsp;&nbsp;' .
                     get_string('home') . '</a></div>';
 
         } else {
@@ -192,7 +192,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             } else {
                 $loggedinas = $realuserinfo.get_string('loggedinas', 'moodle', $username);
                 if ($withlinks) {
-                    $loggedinas .= '&nbsp;&nbsp;<a class="btn btn-small" href="' . $CFG->wwwroot . '/login/logout.php?sesskey=' . sesskey() . '"><i class="fa fa-sign-out"></i> ' . get_string('logout') . '</a>';
+                    $loggedinas .= '&nbsp;&nbsp;<br><a class="btn btn-small" href="' . $CFG->wwwroot . '/login/logout.php?sesskey=' . sesskey() . '"><i class="fa fa-sign-out"></i> ' . get_string('logout') . '</a>';
                 }
             }
         } else {

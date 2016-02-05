@@ -35,6 +35,14 @@ $THEME->enable_dock = true;
 
 $THEME->parents = array('bootstrapbase');
 
+$THEME->lessfile = 'gologo';
+
+$THEME->parents_exclude_sheets = array('bootstrapbase' => array('moodle'));
+
+$THEME->lessvariablescallback = 'theme_gologo_less_variables';
+
+$THEME->extralesscallback = 'theme_gologo_extra_less';
+
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
 $THEME->sheets = array('font-awesome', 'glyphicon-font', 'gologo', 'settings');

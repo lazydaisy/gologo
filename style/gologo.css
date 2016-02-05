@@ -1,29 +1,58 @@
 /* GoLogo Theme CSS
 -------------------------*/
 body {
-    font-family: 'Tempus Sans ITC', sans-serif;
-    font-size: 14px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 18px;
     font-weight: normal;
     font-style: normal;
+    line-height: 1;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.14;
 }
 
 h1, h2, h3, h4, h5, h6,
 .hero-unit h1,
 .path-calendar .maincalendar .calendar-controls .current,
 .path-calendar .maincalendar .header {
-    color: #3291D3;
     font-family: 'Agency FB';
+    font-weight: 600;
+}
+.pagelayout-admin #notice {
+    width: 90%;
+    border-width: 0 5px;
+    border-style: solid;
+}
+.pagelayout-admin #notice > p {
+    padding: 10px 20px;
+    text-align: justify;
+}
+
+#page-admin-index .releasenoteslink,
+#page-admin-index .adminwarning,
+#page-admin-index .adminerror {
+    border-radius: 6px;
+    text-shadow: none;
+    width: 90%;
+    padding: 30px 5%;
+    font-size: 130%;
+    font-weight: 600;
 }
 
 .navbar .brand {
-    color: #3291D3;
 }
 
 #page-header {
     padding-top: 0;
 }
-
-
+.dir-ltr .page-context-header .page-header-image {
+    float: none;
+    margin: 1em 0;
+}
+.dir-rtl .page-context-header .page-header-image {
+    float: none;
+    margin: 1em 0;
+}
 .jsenabled .usermenu .moodle-actionmenu.show .menu {
     padding: 0;
 }
@@ -37,25 +66,30 @@ h1, h2, h3, h4, h5, h6,
 .pagelayout-standard .block_fake .header h2 {
     text-align: center;
 }
-
 .pagelayout-standard .block_fake .minicalendarblock1,
 .pagelayout-standard .block_fake .minicalendarblock2,
 .pagelayout-standard .block_fake .minicalendarblock3 {
 
     border: 1px solid #ddd;
-    height: 200px;
+    height: 230px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+.maincalendar h2 {
+    font-size: 250%;
+    text-align: center;
+}
 .maincalendar .heightcontainer {
     padding-left: 25px;
 }
-
-.maincalendar .heightcontainer h2:before {
+.maincalendar h2:before {
     content: "\f073";
     margin-right: 5px;
     font-family: FontAwesome;
+}
+.maincalendar h2.current:before {
+    content: " ";
+    font-size: 200%;
 }
 
 /* Page layout
@@ -68,10 +102,19 @@ h1, h2, h3, h4, h5, h6,
 
 .pagelayout-admin #page-header,
 .pagelayout-incourse #page-header,
+.pagelayout-mydashboard #page-header,
+.pagelayout-mypublic #page-header,
 .pagelayout-standard #page-header,
 .pagelayout-report #page-header {
     background-image: none;
     padding-top: 0;
+
+}
+.pagelayout-admin .context-header .page-header-headings,
+.pagelayout-incourse .context-header .page-header-headings,
+.pagelayout-standard .context-header .page-header-headings,
+.pagelayout-report .context-header .page-header-headings {
+    margin-top: 0;
 }
 
 .upper-level-only #region-main,
@@ -116,7 +159,9 @@ h1, h2, h3, h4, h5, h6,
 .pagelayout-redirect #page-content .continuebutton a:visited {
     color: white;
 }
-
+#page-footer .logininfo .btn-small {
+    margin-top: 10px;
+}
 
 /* Blocks
 ------------------------------------------*/
@@ -127,10 +172,11 @@ h1, h2, h3, h4, h5, h6,
     background-color: white;
     border: 0 none;
 }
+
 .block .header {
     padding: 10px 0;
-    background-color: #3291D3;
 }
+
 .block .header h2 {
     color: white;
     font-size: 130%;
@@ -146,7 +192,10 @@ h1, h2, h3, h4, h5, h6,
     display: inline;
     margin: 10px 15px;
 }
-
+.block .minicalendar th,
+.block .minicalendar td {
+    line-height: 24px;
+}
 
 /* Styles for Redirect Message
 ------------------------------------------*/
@@ -190,7 +239,6 @@ h1, h2, h3, h4, h5, h6,
     padding: 2px; /* adds padding to icon */
     width: 12px;
 }
-
 
 .course_category_tree .category > .content {
     padding-left: 0; // Removes left padding in category combo course list.
@@ -274,4 +322,105 @@ div.backup-section + form,
 .hero-unit {
     background-color: white;
     padding: 60px 40px;
+}
+
+/* Page Header
+-------------------------*/
+#page-navbar,
+.page-context-header {
+    background-color: white;
+}
+.pagelayout-standard .page-context-header .page-header-image,
+.pagelayout-mydashboard .page-context-header .page-header-image,
+.pagelayout-mypublic .page-context-header .page-header-image {
+    height: 250px;
+    width: 250px;
+    margin: 1em auto 0;
+    border-radius: 6px 25% 25% 6px;
+    box-shadow: 1px 1px 3px 20px #1D567D;
+}
+.pagelayout-standard .page-context-header .page-header-image img.userpicture,
+.pagelayout-mydashboard .page-context-header .page-header-image img.userpicture,
+.pagelayout-mypublic .page-context-header .page-header-image img.userpicture {
+    height: 150px;
+    width: 150px;
+    border: 1px solid #1D567D;
+    border-radius: 25% 25% 25% 6%;
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
+.pagelayout-standard .page-context-header,
+.pagelayout-mydashboard .page-context-header,
+.pagelayout-mypublic .page-context-header {
+    text-align: center;
+}
+.pagelayout-standard .page-context-header .page-header-headings,
+.pagelayout-mydashboard .page-context-header .page-header-headings,
+.pagelayout-mypublic .page-context-header .page-header-headings,
+.pagelayout-standard .page-context-header .header-button-group.
+.pagelayout-mydashboard .page-context-header .header-button-group.
+.pagelayout-mypublic .page-context-header .header-button-group {
+    line-height: 24px;
+    position: relative;
+    vertical-align: middle;
+}
+.pagelayout-standard .page-context-header .page-header-headings,
+.pagelayout-mydashboard .page-context-header .page-header-headings,
+.pagelayout-mypublic .page-context-header .page-header-headings {
+    bottom: 65px;
+    margin: 0 auto;
+}
+.pagelayout-standard .page-context-header .page-header-headings h1,
+.pagelayout-mydashboard .page-context-header .page-header-headings h1,
+.pagelayout-mypublic .page-context-header .page-header-headings h1 {
+    color: white;
+    display: block;
+    text-align: center;
+}
+.breadcrumb {
+    background: none;
+    font-family: "Agency FB";
+    font-size: 110%;
+    color: white;
+}
+#page-navbar {
+    padding-right: 10px;
+}
+.dir-rtl #page-navbar {
+    padding-right: 0;
+    padding-left: 10px;
+}
+.breadcrumb a,
+.breadcrumb a:link,
+.breadcrumb a:visited {
+    color: white;
+    font-size: 110%;
+    font-weight: bold;
+}
+.breadcrumb a:hover,
+.breadcrumb a:focus,
+.breadcrumb a:active {
+    color: #eee;
+}
+
+.breadcrumb > li {
+    text-shadow: none;
+}
+.userprofile .profile_tree section h3 {
+    font-size: 140%;
+    padding: 5px 10px;
+}
+
+.btn-small {
+    font-size: 90%;
+}
+/* GoLogo Extras
+-------------------------*/
+.pagelayout-standard .page-context-header .page-header-image,
+.pagelayout-mydashboard .page-context-header .page-header-image,
+.pagelayout-mypublic .page-context-header .page-header-image {
+    background-image: url([[pix:theme|gologo]]);
+    background-position: 0 50%;
+    background-repeat: no-repeat;
 }

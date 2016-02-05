@@ -95,7 +95,7 @@ echo $OUTPUT->doctype() ?>
         <?php echo $OUTPUT->blocks('side-pre', $sidepre); ?>
     </div>
 
-    <div id="page-footer" class="span-12 row-fluid">
+    <div id="page-footer" class="row-fluid">
 
         <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
 

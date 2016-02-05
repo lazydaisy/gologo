@@ -15,18 +15,22 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Moodle's Clean Logo theme, is an example of how not to make a Bootstrap theme
- *
- * DO NOT MODIFY THIS THEME!
- * COPY IT FIRST, THEN RENAME THE COPY AND MODIFY IT INSTEAD.
- *
- * For full information about creating Moodle themes, see:
- * http://docs.moodle.org/dev/Themes_2.0
- *
  * @package   theme_gologo
  * @copyright 2016 byLazyDaisy.uk
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+/**
+ * This function adds a new LESS veriable based
+ * on the colour added via the theme settings.
+ */
+function theme_gologo_less_variables($theme) {
+    $variables = array();
+    if (!empty($theme->settings->gologocolor)) {
+        $variables['gologoColor'] = $theme->settings->gologocolor;
+    }
+    return $variables;
+}
 
 /**
  * Parses CSS before it is cached.
@@ -35,7 +39,7 @@
  *
  * @param string $css The CSS
  * @param theme_config $theme The theme config object.
- * @return string The parsed CSS The parsed CSS.
+ * @return string The parsed CSS.
  */
 function theme_gologo_process_css($css, $theme) {
 
