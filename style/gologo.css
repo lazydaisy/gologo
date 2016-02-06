@@ -39,9 +39,6 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 600;
 }
 
-.navbar .brand {
-}
-
 #page-header {
     padding-top: 0;
 }
@@ -108,7 +105,6 @@ h1, h2, h3, h4, h5, h6,
 .pagelayout-report #page-header {
     background-image: none;
     padding-top: 0;
-
 }
 .pagelayout-admin .context-header .page-header-headings,
 .pagelayout-incourse .context-header .page-header-headings,
@@ -135,14 +131,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .pagelayout-redirect #page-content {
-    background-color: rgba(50, 145, 211, 15%);
     background-image: url([[pix:theme|compass]]);
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 300px;
+    background-size: 200px;
     margin: 20px auto;
     text-align: center;
-    height: 600px;
+    min-height: 600px;
     width: 100%;
 }
 
@@ -241,11 +236,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .course_category_tree .category > .content {
-    padding-left: 0; // Removes left padding in category combo course list.
+    padding-left: 0;  /** Removes left padding in category combo course list. **/
 }
 
 .dir-rtl .course_category_tree .category > .content {
-    padding-right: 0; // Removes right padding in category combo course list.
+    padding-right: 0; /** Removes right padding in category combo course list. **/
 }
 
 .coursebox .content .summary,
@@ -259,7 +254,7 @@ h1, h2, h3, h4, h5, h6,
 
 .dir-rtl .coursebox .content .summary,
 .dir-rtl .coursebox .content .coursecat {
-    float: right; // Removes float property.
+    float: right;
 }
 
 table#form td.submit,
@@ -326,10 +321,7 @@ div.backup-section + form,
 
 /* Page Header
 -------------------------*/
-#page-navbar,
-.page-context-header {
-    background-color: white;
-}
+
 .pagelayout-standard .page-context-header .page-header-image,
 .pagelayout-mydashboard .page-context-header .page-header-image,
 .pagelayout-mypublic .page-context-header .page-header-image {
@@ -337,14 +329,12 @@ div.backup-section + form,
     width: 250px;
     margin: 1em auto 0;
     border-radius: 6px 25% 25% 6px;
-    box-shadow: 1px 1px 3px 20px #1D567D;
 }
 .pagelayout-standard .page-context-header .page-header-image img.userpicture,
 .pagelayout-mydashboard .page-context-header .page-header-image img.userpicture,
 .pagelayout-mypublic .page-context-header .page-header-image img.userpicture {
     height: 150px;
     width: 150px;
-    border: 1px solid #1D567D;
     border-radius: 25% 25% 25% 6%;
     position: relative;
     top: 30px;
@@ -358,8 +348,8 @@ div.backup-section + form,
 .pagelayout-standard .page-context-header .page-header-headings,
 .pagelayout-mydashboard .page-context-header .page-header-headings,
 .pagelayout-mypublic .page-context-header .page-header-headings,
-.pagelayout-standard .page-context-header .header-button-group.
-.pagelayout-mydashboard .page-context-header .header-button-group.
+.pagelayout-standard .page-context-header .header-button-group,
+.pagelayout-mydashboard .page-context-header .header-button-group,
 .pagelayout-mypublic .page-context-header .header-button-group {
     line-height: 24px;
     position: relative;

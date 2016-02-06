@@ -58,6 +58,9 @@ $string['customcssdesc'] = 'This setting allows you to add your Custom CSS rules
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
 
+$string['gologocolor'] = 'GoLogo Theme Colour';
+$string['gologocolordesc'] = 'This setting allows you to choose a base colour for this theme. Choose a dark colour for best effect, since all the link, visited, hover, focus and active hyperlink colours will be automatically derived from this setting.';
+
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page between black and white.';
 

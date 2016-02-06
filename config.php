@@ -25,31 +25,21 @@ $THEME->name = 'gologo';
 /* Configuration settings for the GoLogo theme
 ----------------------------------------------*/
 
-$THEME->csspostprocess = 'theme_gologo_process_css';
-
 $THEME->doctype = 'html5';
-
-$THEME->editor_sheets = array('editor');
-
-$THEME->enable_dock = true;
-
 $THEME->parents = array('bootstrapbase');
-
-$THEME->lessfile = 'gologo';
-
-$THEME->parents_exclude_sheets = array('bootstrapbase' => array('moodle'));
-
+$THEME->sheets = array('font-awesome', 'glyphicon-font', 'gologo', 'settings');
+$THEME->lessfile = 'moodle';
+$THEME->parents_exclude_sheets = array('bootstrapbase' => array('moodle'), 'clean' => array('custom'));
 $THEME->lessvariablescallback = 'theme_gologo_less_variables';
-
 $THEME->extralesscallback = 'theme_gologo_extra_less';
+$THEME->supportscssoptimisation = false;
+$THEME->yuicssmodules = array();
 
+$THEME->csspostprocess = 'theme_gologo_process_css';
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
-$THEME->sheets = array('font-awesome', 'glyphicon-font', 'gologo', 'settings');
-
-$THEME->supportscssoptimisation = false;
-
-$THEME->yuicssmodules = array();
+$THEME->editor_sheets = array();
+$THEME->enable_dock = true;
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
@@ -149,4 +139,3 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre'
     ),
 );
-

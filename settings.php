@@ -45,7 +45,7 @@ if ($ADMIN->fulltree) {
     // Gologo color setting.
     $name = 'theme_gologo/gologocolor';
     $title = get_string('gologocolor', 'theme_gologo');
-    $description = get_string('gologocolor_desc', 'theme_gologo');
+    $description = get_string('gologocolordesc', 'theme_gologo');
     $default = '#3291D3';
     $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, null, false);
     $setting->set_updatedcallback('theme_reset_all_caches');

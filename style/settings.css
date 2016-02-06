@@ -8,13 +8,15 @@ a.brand {
     background-image: url([[setting:brandicon]]);
     background-position: 20px 50%;
     background-repeat: no-repeat;
-    color: #3291D3;
     display: block;
     height: 20px;
     padding-left: 20px;
     padding-right: 20px;
     width: 20px;
+}
 
+.dir-rtl a.brand {
+    background-position: 98.5% 50%;
 }
 
 /* Brand Logo Styles
@@ -22,7 +24,7 @@ a.brand {
 #page-header {
     background-image: url([[setting:brandlogo]]);
     background-repeat: no-repeat;
-    background-position: left top;
+    background-position: center top;
     padding-top: 200px;
 }
 
@@ -30,12 +32,8 @@ a.brand {
     background-position: right top;
 }
 
-.dir-rtl a.brand {
-    background-position: right;
-}
 
 /* Custom CSS Settings
 -------------------------*/
-
 
 [[setting:customcss]]

@@ -14,8 +14,6 @@
 @btnPrimaryBackground:              @gologoColor;
 @btnPrimaryBackgroundHighlight:     @gologoColorHover;
 
-@hrBorder:                          @tableBackgroundAccent;
-
 @dropdownLinkColor:                 @gologoColor;
 @dropdownLinkColorHover:            @navbarLinkColor;
 @dropdownLinkBackgroundHover:       @gologoColor;
@@ -23,24 +21,34 @@
 @navbarBorder:                      @navbarDividerDarker;
 @navbarBackgroundHighlight:         @navbarDividerLighter;
 
+a,
+a:link,
+a:visited {
+    color: @gologoColor;
+}
+a:hover,
+a:focus,
+a:active {
+    color: @gologoColorHover;
+}
+
 h1, h2, h3, h4, h5, h6,
+a.brand,
 .hero-unit h1,
 .path-calendar .maincalendar .calendar-controls .current,
 .path-calendar .maincalendar .header {
     color: @gologoColor;
 }
+
 .pagelayout-admin #notice {
     border-color: @gologoColor;
 }
-
 .block .header {
     background-color: @gologoColor;
 }
-
 .navbar .brand {
     color: @gologoColor;
 }
-#page-navbar,
 .page-context-header {
     background-color: @white;
 }
@@ -51,10 +59,14 @@ h1, h2, h3, h4, h5, h6,
     border: 3px solid @gologoColorHover;
     box-shadow: 1px 1px 3px 20px @gologoColorHover;
 }
-
+.pagelayout-standard .page-context-header .page-header-image img.userpicture,
+.pagelayout-mydashboard .page-context-header .page-header-image img.userpicture,
+.pagelayout-mypublic .page-context-header .page-header-image img.userpicture {
+    border: 1px solid @gologoColorHover;
+}
 
 #page-navbar {
-    background: @gologoColor;
+    background-color: @gologoColor;
 }
 .btn {
     color: @gologoColor;
