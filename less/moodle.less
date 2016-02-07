@@ -5,22 +5,127 @@
 
 // Set theme colours.
 
-@gologoColor:                       #3291D3;
-@navbarLinkColor:                   @white;
-@gologoColorHover:                  lighten(@gologoColor, 25%);
-@navbarDividerDarker:               darken(@gologoColor, 25%);
-@navbarDividerLighter:              @gologoColorHover;
-@navbarLinkColorHover:              @gologoColorHover;
-@btnPrimaryBackground:              @gologoColor;
-@btnPrimaryBackgroundHighlight:     @gologoColorHover;
+@gologoColor:                            #3291D3;
+@gologoLinkColor:                        @white;
+@gologoColorHover:                       lighten(@gologoColor, 25%);
 
-@dropdownLinkColor:                 @gologoColor;
-@dropdownLinkColorHover:            @navbarLinkColor;
-@dropdownLinkBackgroundHover:       @gologoColor;
+// Inverted navbar
+@navbarInverseBackground:                @gologoColor;
+@navbarInverseBackgroundHighlight:       @gologoColor;
+@navbarInverseBorder:                    @gologoColor;
 
-@navbarBorder:                      @navbarDividerDarker;
-@navbarBackgroundHighlight:         @navbarDividerLighter;
+@navbarInverseText:                      @gologoLinkColor;
+@navbarInverseLinkColor:                 @gologoLinkColor;
+@navbarInverseLinkColorHover:            @gologoColorHover;
+@navbarInverseLinkColorActive:           @gologoColorHover;
+@navbarInverseLinkBackgroundHover:       darken(@gologoColor, 15%);
+@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
 
+@navbarInverseBrandColor:                @gologoLinkColor;
+
+
+/* Navbar
+-------------------------*/
+.navbar-inverse {
+
+  .navbar-inner {
+    #gradient > .vertical(@gologoColor, @gologoColor);
+    border-color: @navbarInverseBorder;
+  }
+
+  .brand,
+  .nav > li > a {
+    color: @navbarInverseLinkColor;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    &:hover,
+    &:focus {
+      color: @navbarInverseLinkColorHover;
+    }
+  }
+
+  .brand {
+    color: @navbarInverseBrandColor;
+  }
+
+  .navbar-text {
+    color: @navbarInverseText;
+  }
+
+  .nav > li > a:focus,
+  .nav > li > a:hover {
+    background-color: @navbarInverseLinkBackgroundHover;
+    color: @navbarInverseLinkColorHover;
+  }
+
+  .nav .active > a,
+  .nav .active > a:hover,
+  .nav .active > a:focus {
+    color: @navbarInverseLinkColorActive;
+    background-color: @navbarInverseLinkBackgroundActive;
+  }
+
+  // Inline text links
+  .navbar-link {
+    color: @navbarInverseLinkColor;
+    &:hover,
+    &:focus {
+      color: @navbarInverseLinkColorHover;
+    }
+  }
+
+  // Dividers in navbar
+  .divider-vertical {
+    border-left-color: @navbarInverseBackground;
+    border-right-color: @navbarInverseBackgroundHighlight;
+  }
+
+  // Dropdowns
+  .nav li.dropdown.open > .dropdown-toggle,
+  .nav li.dropdown.active > .dropdown-toggle,
+  .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: @navbarInverseLinkBackgroundActive;
+    color: @navbarInverseLinkColorActive;
+  }
+  .nav li.dropdown > a:hover .caret,
+  .nav li.dropdown > a:focus .caret {
+    border-top-color: @navbarInverseLinkColorActive;
+    border-bottom-color: @navbarInverseLinkColorActive;
+  }
+  .nav li.dropdown > .dropdown-toggle .caret {
+    border-top-color: @navbarInverseLinkColor;
+    border-bottom-color: @navbarInverseLinkColor;
+  }
+  .nav li.dropdown.open > .dropdown-toggle .caret,
+  .nav li.dropdown.active > .dropdown-toggle .caret,
+  .nav li.dropdown.open.active > .dropdown-toggle .caret {
+    border-top-color: @navbarInverseLinkColorActive;
+    border-bottom-color: @navbarInverseLinkColorActive;
+  }
+
+
+  // Navbar collapse button
+  .btn-navbar {
+    .buttonBackground(darken(@navbarInverseBackgroundHighlight, 5%), darken(@navbarInverseBackground, 5%));
+  }
+
+}
+
+.dir-ltr .page-context-header .header-button-group,
+.dir-rtl .page-context-header .header-button-group {
+    float: none;
+}
+.page-context-header .header-button-group a {
+    font-size: 20px;
+    font-weight: bold;
+    text-aligm: center;
+    padding: 10px 20px;
+}
+.page-context-header .header-button-title {
+    margin: 0 5px;
+}
+
+/* GoLogo Colour
+-------------------------*/
 a,
 a:link,
 a:visited {
@@ -64,15 +169,27 @@ a.brand,
 .pagelayout-mypublic .page-context-header .page-header-image img.userpicture {
     border: 1px solid @gologoColorHover;
 }
-
+.page-context-header span.header-button-title:hover {
+    color: @gologoColorHover;
+}
 #page-navbar {
     background-color: @gologoColor;
 }
+#page-navbar .breadcrumb > li {
+    color: @white;
+}
+#page-navbar .breadcrumb > li:hover {
+    color: @gologoColorHover;
+}
+
 .btn {
     color: @gologoColor;
 }
 i.fa {
     color: @gologoColor;
+}
+i.fa:hover {
+    color: @white;
 }
 .userprofile .profile_tree section h3 {
     background-color: @gologoColor;
