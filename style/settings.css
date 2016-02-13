@@ -1,7 +1,6 @@
 /* DO NOT ADD ANY CSS HERE
 -------------------------*/
 
-
 /* Brand Icon Styles
 -------------------------*/
 a.brand {
@@ -32,6 +31,24 @@ a.brand {
     background-position: right top;
 }
 
+/* Poster Styles
+-------------------------*/
+#poster1 .thumbnails {
+    background-image: url([[setting:poster1image]]);
+}
+#poster2 .thumbnails {
+    background-image: url([[setting:poster2image]]);
+}
+#poster1 .thumbnails,
+#poster2 .thumbnails {
+    background-position: center top;
+    background-repeat: no-repeat;
+    display: block;
+}
+#poster1 h3,
+#poster2 h3 {
+    padding-top: 200px;
+}
 
 /* Custom CSS Settings
 -------------------------*/

@@ -67,6 +67,22 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
+    // First Poster image file setting.
+    $name = 'theme_gologo/poster1image';
+    $title = get_string('poster1image','theme_gologo');
+    $description = get_string('poster1imagedesc', 'theme_gologo');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'poster1image');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
+    // Second Poster image file setting.
+    $name = 'theme_gologo/poster2image';
+    $title = get_string('poster2image','theme_gologo');
+    $description = get_string('poster1imagedesc', 'theme_gologo');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'poster2image');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
     // Custom CSS file.
     $name = 'theme_gologo/customcss';
     $title = get_string('customcss', 'theme_gologo');

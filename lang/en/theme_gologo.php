@@ -50,6 +50,10 @@ $string['brandlogo'] = 'Brand Logo';
 $string['brandlogodesc'] = 'This setting allows you to add a \'Brand\' logo just above the title of the page. The logo can be any width but no more than 200px in height.To adjust the styles for the height of your logo, if more than 200px, please add the following CSS rule to the Custom CSS text area lower down this settings page, where \'225px\' represents the height of your logo. <br>
 <pre>#page-header { padding-top: 225px; }</pre>';
 
+$string['poster1image'] = 'First \'Poster\' image';
+$string['poster2image'] = 'Second \'Poster\' image';
+$string['poster1imagedesc'] = 'This setting allows you to add a \'Poster\' image to each side of the user avatar in the profile page. The poster size is important in that ideally it should to be a square image no more than 200px x 200px.';
+
 $string['configtitle'] = 'GoLogo Settings';
 
 $string['customcss'] = 'Custom CSS';

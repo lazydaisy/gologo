@@ -51,6 +51,13 @@ function theme_gologo_process_css($css, $theme) {
     $brandlogo = $theme->setting_file_url('brandlogo', 'brandlogo');
     $css = theme_gologo_set_brandlogo($css, $brandlogo);
 
+    // Set the background image for the posters.
+    $poster1image = $theme->setting_file_url('poster1image', 'poster1image');
+    $css = theme_gologo_set_poster1image($css, $poster1image);
+
+    $poster2image = $theme->setting_file_url('poster2image', 'poster2image');
+    $css = theme_gologo_set_poster2image($css, $poster2image);
+
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
@@ -101,6 +108,44 @@ function theme_gologo_set_brandlogo($css, $brandlogo) {
 }
 
 /**
+ * Adds the first 'Poster' image to CSS as a background-image.
+ *
+ * @param string $css The CSS.
+ * @param string $poster1 The URL of the first 'Poster' image.
+ * @return string The parsed CSS
+ */
+function theme_gologo_set_poster1image($css, $poster1image) {
+    $tag = '[[setting:poster1image]]';
+    $replacement = $poster1image;
+    if (is_null($replacement)) {
+        $replacement = '';
+    }
+
+    $css = str_replace($tag, $replacement, $css);
+
+    return $css;
+}
+
+/**
+ * Adds the second 'Poster' image to CSS as a background-image.
+ *
+ * @param string $css The CSS.
+ * @param string $poster1 The URL of the second 'Poster' image.
+ * @return string The parsed CSS
+ */
+function theme_gologo_set_poster2image($css, $poster2image) {
+    $tag = '[[setting:poster2image]]';
+    $replacement = $poster2image;
+    if (is_null($replacement)) {
+        $replacement = '';
+    }
+
+    $css = str_replace($tag, $replacement, $css);
+
+    return $css;
+}
+
+/**
  * Serves any files associated with the theme settings.
  *
  * @param stdClass $course
@@ -113,7 +158,8 @@ function theme_gologo_set_brandlogo($css, $brandlogo) {
  * @return bool
  */
 function theme_gologo_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'brandicon' || $filearea === 'brandlogo')) {
+    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'brandicon' || $filearea === 'brandlogo' ||
+                                                     $filearea === 'poster1image' || $filearea === 'poster2image')) {
         $theme = theme_config::load('gologo');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {
