@@ -82,7 +82,9 @@ echo $OUTPUT->doctype() ?>
       </li>
     </ul>
 </div>
-<div class="span6 well"><?php echo $OUTPUT->full_header(); ?></div>
+<div class="span6 well">
+    <?php echo $OUTPUT->full_header(); ?>
+</div>
 <div id="poster2" class="span3 well">
     <ul class="thumbnails">
       <li class="span12">
