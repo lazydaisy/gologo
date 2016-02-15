@@ -34,10 +34,18 @@ if ($ADMIN->fulltree) {
 
     $temp = new admin_settingpage('theme_gologo', get_string('configtitle','theme_gologo'));
 
-    // Invert Navbar to dark background.
+    // Invert navbar to use solid colour background. .
     $name = 'theme_gologo/invert';
     $title = get_string('invert', 'theme_gologo');
     $description = get_string('invertdesc', 'theme_gologo');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
+    // Select default user picture styles.
+    $name = 'theme_gologo/defaultuserpicturestyles';
+    $title = get_string('defaultuserpicturestyles', 'theme_gologo');
+    $description = get_string('defaultuserpicturestylesdesc', 'theme_gologo');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
@@ -75,11 +83,47 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
+    // First Poster thumbnail heading <h3> setting.
+    $name = 'theme_gologo/poster1heading';
+    $title = get_string('poster1heading','theme_gologo');
+    $description = get_string('poster1headingdesc', 'theme_gologo');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default );
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
+    // First Poster thumbnail text <p> setting.
+    $name = 'theme_gologo/poster1caption';
+    $title = get_string('poster1caption', 'theme_gologo');
+    $description = get_string('poster1captiondesc', 'theme_gologo');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
     // Second Poster image file setting.
     $name = 'theme_gologo/poster2image';
     $title = get_string('poster2image','theme_gologo');
     $description = get_string('poster1imagedesc', 'theme_gologo');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'poster2image');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
+    // Second Poster thumbnail heading <h3> setting.
+    $name = 'theme_gologo/poster2heading';
+    $title = get_string('poster2heading','theme_gologo');
+    $description = get_string('poster2headingdesc', 'theme_gologo');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default );
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
+    // Second Poster thumbnail caption <p> setting.
+    $name = 'theme_gologo/poster2caption';
+    $title = get_string('poster2caption', 'theme_gologo');
+    $description = get_string('poster2captiondesc', 'theme_gologo');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 

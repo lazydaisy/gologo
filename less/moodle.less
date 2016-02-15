@@ -157,16 +157,17 @@ a.brand,
 .page-context-header {
     background-color: @white;
 }
-.pagelayout-standard .page-context-header .page-header-image,
-.pagelayout-mydashboard .page-context-header .page-header-image,
-.pagelayout-mypublic .page-context-header .page-header-image {
+
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image {
     background-color: @gologoColor;
     border: 3px solid @gologoColorHover;
     box-shadow: 1px 1px 3px 20px @gologoColorHover;
 }
-.pagelayout-standard .page-context-header .page-header-image img.userpicture,
-.pagelayout-mydashboard .page-context-header .page-header-image img.userpicture,
-.pagelayout-mypublic .page-context-header .page-header-image img.userpicture {
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-image img.userpicture,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image img.userpicture,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image img.userpicture {
     border: 1px solid @gologoColorHover;
 }
 .page-context-header span.header-button-title:hover {
@@ -188,18 +189,6 @@ a.brand,
     margin: 0 10%;
 }
 
-.pagelayout-mypublic.editing .breadcrumb-button,
-.pagelayout-mypublic.editing #page-navbar .breadcrumb-button {
-    width: auto;
-    margin: 0 5%;
-}
-
-.pagelayout-mypublic .breadcrumb-nav,
-.pagelayout-mypublic.editing .breadcrumb-nav {
-    float: none;
-    text-align: center;
-}
-
 .btn {
     color: @gologoColor;
 }
@@ -207,10 +196,29 @@ i.fa {
     color: @gologoColor;
 }
 i.fa:hover {
-    color: @white;
+    color: @gologoColorHover;
 }
+.navbar-inverse .brand .fa-home {
+    color: @white;
+    cursor: pointer;
+}
+.navbar-inverse .brand:hover,
+.navbar-inverse .brand:focus,
+.navbar-inverse .brand:active {
+    background-color: @navbarInverseLinkBackgroundHover;
+}
+
 .userprofile .profile_tree section h3 {
     background-color: @gologoColor;
     color: @white;
 }
 
+.jsenabled .usermenu .moodle-actionmenu.show .menu a:hover {
+    background-color: @gologoColor;
+}
+
+.navbar-inverse .brand .fa:hover,
+.navbar-inverse .brand .fa:focus,
+.navbar-inverse .brand .fa:active {
+    color: @gologoColorHover;
+}

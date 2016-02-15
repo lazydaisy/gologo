@@ -32,12 +32,21 @@
 $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 
 // Set default (LTR) layout mark-up for a three column page.
+$headerfirst = 'span3 desktop-first-column';
+$headerlast = 'span3 pull-right';
 $regionmain = 'span9 pull-right';
 $sidepre = 'span3 desktop-first-column';
+$footerfirst = 'span6 desktop-first-column';
+$footerlast = 'span6 pull-right';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
+    $headerfirst = 'span3 pull-right';
+    $headerlast = 'span3 desktop-first-column';
     $regionmain = 'span9';
     $sidepre = 'span3 pull-right';
+    $footerfirst = 'span6 pull-right';
+    $footerlast = 'span6 desktop-first-column';
+
 }
 
 echo $OUTPUT->doctype() ?>
@@ -70,32 +79,19 @@ echo $OUTPUT->doctype() ?>
 </header>
 
 <div id="page" class="container-fluid">
-
 <div id="page-header-outer" class="row-fluid">
-<div id="poster1" class="span3 well">
-    <ul class="thumbnails">
-      <li class="span12">
-        <div class="thumbnail">
-          <?php echo $html->poster1heading;?>
-          <?php echo $html->poster1caption;?>
-        </div>
-      </li>
-    </ul>
-</div>
+
+    <?php echo $OUTPUT->blocks('header-first', $headerfirst); ?>
+
+
 <div class="span6 well">
     <?php echo $OUTPUT->full_header(); ?>
 </div>
-<div id="poster2" class="span3 well">
-    <ul class="thumbnails">
-      <li class="span12">
-        <div class="thumbnail">
-          <?php echo $html->poster2heading;?>
-          <?php echo $html->poster2caption;?>
-        </div>
-      </li>
-    </ul>
+
+    <?php echo $OUTPUT->blocks('header-last', $headerlast); ?>
+
 </div>
-</div>
+
     <div id="page-content" class="row-fluid">
         <section id="region-main" class="<?php echo $regionmain; ?>">
             <?php
@@ -110,6 +106,13 @@ echo $OUTPUT->doctype() ?>
     <div id="page-footer" class="row-fluid">
 
         <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
+
+            <?php echo $OUTPUT->blocks('footer-first', $footerfirst); ?>
+            <?php echo $OUTPUT->blocks('footer-last', $footerlast); ?>
+
+        <div class="row-fluid">
+            <?php echo $OUTPUT->blocks('lower-level', 'span-12'); ?>
+        </div>
 
         <?php {
             echo $OUTPUT->page_doc_link();

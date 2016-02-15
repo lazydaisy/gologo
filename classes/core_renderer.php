@@ -280,7 +280,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         }
         $output .= $this->notification($message, 'redirectmessage');
         $output .= html_writer::tag('div',
-                                html_writer::link($encodedurl, get_string('continue')),
+                                html_writer::link($encodedurl, get_string('tryingtoredirectyou', 'theme_gologo')),
                                 array('class' => 'continuebutton btn btn-large btn-info'));
         if ($debugdisableredirect) {
             $output .= '<p><strong>'.get_string('erroroutput', 'error').'</strong></p>';

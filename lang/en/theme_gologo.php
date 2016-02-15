@@ -50,10 +50,6 @@ $string['brandlogo'] = 'Brand Logo';
 $string['brandlogodesc'] = 'This setting allows you to add a \'Brand\' logo just above the title of the page. The logo can be any width but no more than 200px in height.To adjust the styles for the height of your logo, if more than 200px, please add the following CSS rule to the Custom CSS text area lower down this settings page, where \'225px\' represents the height of your logo. <br>
 <pre>#page-header { padding-top: 225px; }</pre>';
 
-$string['poster1image'] = 'First \'Poster\' image';
-$string['poster2image'] = 'Second \'Poster\' image';
-$string['poster1imagedesc'] = 'This setting allows you to add a \'Poster\' image to each side of the user avatar in the profile page. The poster size is important in that ideally it should to be a square image no more than 200px x 200px.';
-
 $string['configtitle'] = 'GoLogo Settings';
 
 $string['customcss'] = 'Custom CSS';
@@ -66,18 +62,36 @@ $string['gologocolor'] = 'GoLogo Theme Colour';
 $string['gologocolordesc'] = 'This setting allows you to choose a base colour for this theme. Choose a dark colour for best effect, since all the link, visited, hover, focus and active hyperlink colours will be automatically derived from this setting.';
 
 $string['invert'] = 'Invert navbar';
-$string['invertdesc'] = 'Swaps text and background for the navbar at the top of the page between black and white.';
+$string['invertdesc'] = 'This setting allows you to swap between a white or a solid colour background for the top navbar.';
 
 $string['pluginname'] = 'GoLogo';
 
-$string['region-footer-first'] = 'Footer First';
-$string['region-footer-last'] = 'Footer Last';
+$string['poster1image'] = 'First \'Poster\' image';
+$string['poster1imagedesc'] = 'This setting allows you to add a \'Poster\' image to each side of the user avatar in the profile page. The poster size is important in that ideally it should to be a square image no more than 200px x 200px.';
+$string['poster1image'] = 'First \'Poster\' image';
+$string['poster1heading'] = 'First \'Poster\' heading';
+$string['poster1caption'] = 'First \'Poster\' caption.';
+$string['poster1headingdesc'] = 'This setting allows you to add a heading for the first \'Poster\'.';
+$string['poster1captiondesc'] = 'This setting allows you to add a short caption for the first \'Poster\'.';
+$string['poster2image'] = 'Second \'Poster\' image';
+$string['poster2heading'] = 'Second \'Poster\' heading';
+$string['poster2caption'] = 'Second \'Poster\' caption.';
+$string['poster2headingdesc'] = 'This setting allows you to add a heading for the second \'Poster\'.';
+$string['poster2captiondesc'] = 'This setting allows you to add a short caption for the second \'Poster\'.';
+
+$string['region-footer-first'] = 'Footer-first';
+$string['region-footer-last'] = 'Footer-last';
+$string['region-header-first'] = 'Header-first';
+$string['region-header-last'] = 'Header-last';
 $string['region-home-content'] = 'Home-content';
 $string['region-home-footer'] = 'Home-footer';
-$string['region-home-header'] = 'Home header';
+$string['region-home-header'] = 'Home-header';
 $string['region-home-main'] = 'Home-main';
 $string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
 
-$string['tryingtoredirectyou'] = 'We are trying to redirect you. Thank you for your patience.';
+$string['tryingtoredirectyou'] = 'We are trying to redirect you. Click <strong>HERE</strong> to continue';
+
+$string['defaultuserpicturestyles'] = 'Default user picture styles.';
+$string['defaultuserpicturestylesdesc'] = 'This setting allows you to either use the theme styled user picture or the default user picture styles as normally seen in Moodle.';

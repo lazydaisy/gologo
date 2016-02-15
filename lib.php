@@ -213,12 +213,38 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->navbarclass .= ' navbar-inverse';
     }
 
+    $return->bodyclass = '';
+    if (empty($page->theme->settings->defaultuserpicturestyles)) {
+        $return->bodyclass .= 'user-picture-styles';
+    }
+
     $return->brandicon = html_writer::link($CFG->wwwroot, '<i class="fa fa-home"></i>', array('class' => 'brand'));
     if (!empty($page->theme->settings->brandicon)) {
         $return->brandicon = html_writer::link($CFG->wwwroot, '', array('class' => 'brand'));
     }
 
-    $return->footnote = '';
+    $return->poster1heading = '';
+    if (!empty($page->theme->settings->poster1heading)) {
+        $return->poster1heading = html_writer::tag('h3', format_text($page->theme->settings->poster1heading));
+    }
+
+    $return->poster1caption = '';
+    if (!empty($page->theme->settings->poster1caption)) {
+        $return->poster1caption = html_writer::tag('p', format_text($page->theme->settings->poster1caption));
+    }
+
+
+    $return->poster2heading = '';
+    if (!empty($page->theme->settings->poster2heading)) {
+        $return->poster2heading = html_writer::tag('h3', format_text($page->theme->settings->poster2heading));
+    }
+
+    $return->poster2caption = '';
+    if (!empty($page->theme->settings->poster2caption)) {
+        $return->poster2caption = html_writer::tag('p', format_text($page->theme->settings->poster2caption));
+    }
+
+     $return->footnote = '';
     if (!empty($page->theme->settings->footnote)) {
         $return->footnote = html_writer::tag('div',
                                          format_text($page->theme->settings->footnote),

@@ -322,17 +322,17 @@ div.backup-section + form,
 /* Page Header
 -------------------------*/
 
-.pagelayout-standard .page-context-header .page-header-image,
-.pagelayout-mydashboard .page-context-header .page-header-image,
-.pagelayout-mypublic .page-context-header .page-header-image {
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image {
     height: 250px;
     width: 250px;
     margin: 1em auto 0;
     border-radius: 6px 25% 25% 6px;
 }
-.pagelayout-standard .page-context-header .page-header-image img.userpicture,
-.pagelayout-mydashboard .page-context-header .page-header-image img.userpicture,
-.pagelayout-mypublic .page-context-header .page-header-image img.userpicture {
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-image img.userpicture,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image img.userpicture,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image img.userpicture {
     height: 150px;
     width: 150px;
     border-radius: 25% 25% 25% 6%;
@@ -345,29 +345,35 @@ div.backup-section + form,
 .pagelayout-mypublic .page-context-header {
     text-align: center;
 }
-.pagelayout-standard .page-context-header .page-header-headings,
-.pagelayout-mydashboard .page-context-header .page-header-headings,
-.pagelayout-mypublic .page-context-header .page-header-headings,
-.pagelayout-standard .page-context-header .header-button-group,
-.pagelayout-mydashboard .page-context-header .header-button-group,
-.pagelayout-mypublic .page-context-header .header-button-group {
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-headings,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-headings,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-headings,
+.pagelayout-standard.user-picture-styles .page-context-header .header-button-group,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .header-button-group,
+.pagelayout-mypublic.user-picture-styles .page-context-header .header-button-group {
     line-height: 24px;
     position: relative;
     vertical-align: middle;
 }
-.pagelayout-standard .page-context-header .page-header-headings,
-.pagelayout-mydashboard .page-context-header .page-header-headings,
-.pagelayout-mypublic .page-context-header .page-header-headings {
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-headings,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-headings,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-headings {
     bottom: 65px;
     margin: 0 auto;
 }
-.pagelayout-standard .page-context-header .page-header-headings h1,
-.pagelayout-mydashboard .page-context-header .page-header-headings h1,
-.pagelayout-mypublic .page-context-header .page-header-headings h1 {
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-headings h1,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-headings h1,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-headings h1 {
     color: white;
     display: block;
     text-align: center;
 }
+.pagelayout-standard.user-picture-styles .page-context-header,
+.pagelayout-mydashboard.user-picture-styles .page-context-header,
+.pagelayout-mypublic.user-picture-styles .page-context-header {
+    padding-top: 20px;
+}
+
 .breadcrumb {
     background: none;
     font-family: "Agency FB";
@@ -381,6 +387,7 @@ div.backup-section + form,
     padding-right: 0;
     padding-left: 10px;
 }
+
 .breadcrumb a,
 .breadcrumb a:link,
 .breadcrumb a:visited {
@@ -407,10 +414,47 @@ div.backup-section + form,
 }
 /* GoLogo Extras
 -------------------------*/
-.pagelayout-standard .page-context-header .page-header-image,
-.pagelayout-mydashboard .page-context-header .page-header-image,
-.pagelayout-mypublic .page-context-header .page-header-image {
+
+.pagelayout-standard.user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image {
     background-image: url([[pix:theme|gologo]]);
     background-position: 0 50%;
     background-repeat: no-repeat;
+}
+
+.pagelayout-mypublic.editing .breadcrumb-button,
+.pagelayout-mypublic.editing #page-navbar .breadcrumb-button {
+    width: auto;
+    margin: 0 5%;
+}
+
+.pagelayout-mypublic .breadcrumb-nav,
+.pagelayout-mypublic.editing .breadcrumb-nav {
+    float: none;
+    text-align: center;
+}
+
+.has-region-header-first.editing #block-region-footer-first,
+.has-region-header-last.editing #block-region-footer-last,
+.has-region-header-first.editing #block-region-header-first,
+.has-region-header-last.editing #block-region-header-last,
+.has-region-upper-level.editing #block-region-upper-level,
+.has-region-lower-level.editing #block-region-lower-level,
+.has-region-home-header.editing #block-region-home-header,
+.has-region-home-footer.editing #block-region-home-footer {
+    border: 2px dashed #abc;
+    min-height: 20px;
+}
+
+.block .singleselect select.singleselect,
+.block .singleselect {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+.used-region-header-first.used-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main,
+.empty-region-header-first.used-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main,
+.used-region-header-first.empty-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main {
+    width: 100%;
 }

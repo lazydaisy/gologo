@@ -86,9 +86,9 @@ $THEME->layouts = array(
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'default.php',
-        'regions' => array('side-pre', 'lower-level'),
-        'defaultregion' => 'lower-level',
+        'file' => 'mydashboard.php',
+        'regions' => array('side-pre', 'header-first', 'header-last', 'footer-first', 'footer-last','lower-level',),
+        'defaultregion' => 'side-pre',
         'options' => array('langmenu' => true),
     ),
     // My public page.
