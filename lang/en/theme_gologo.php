@@ -91,7 +91,7 @@ $string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
 
-$string['tryingtoredirectyou'] = 'We are trying to redirect you. Click <strong>HERE</strong> to continue';
+$string['tryingtoredirectyou'] = '<small><p class="text-center">We are trying to redirect you</p><p class="text-center">Please <strong>CLICK HERE</strong> to continue...</p></small>';
 
 $string['defaultuserpicturestyles'] = 'Default user picture styles.';
 $string['defaultuserpicturestylesdesc'] = 'This setting allows you to either use the theme styled user picture or the default user picture styles as normally seen in Moodle.';

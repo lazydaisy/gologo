@@ -328,7 +328,7 @@ div.backup-section + form,
     height: 250px;
     width: 250px;
     margin: 1em auto 0;
-    border-radius: 6px 25% 25% 6px;
+    border-radius: 0 25% 25% 0;
 }
 .pagelayout-standard.user-picture-styles .page-context-header .page-header-image img.userpicture,
 .pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image img.userpicture,
@@ -423,26 +423,38 @@ div.backup-section + form,
     background-repeat: no-repeat;
 }
 
-.pagelayout-mypublic.editing .breadcrumb-button,
-.pagelayout-mypublic.editing #page-navbar .breadcrumb-button {
-    width: auto;
-    margin: 0 5%;
-}
-
 .pagelayout-mypublic .breadcrumb-nav,
-.pagelayout-mypublic.editing .breadcrumb-nav {
+.pagelayout-mydashboard .breadcrumb-nav,
+.pagelayout-mypublic.editing .breadcrumb-nav,
+.pagelayout-mydashboard.editing .breadcrumb-nav {
     float: none;
     text-align: center;
 }
 
+.pagelayout-mypublic .breadcrumb-button,
+.pagelayout-mydashboard .breadcrumb-button,
+.pagelayout-mypublic.editing .breadcrumb-button,
+.pagelayout-mydashboard.editing .breadcrumb-button,
+.pagelayout-mypublic #page-navbar .breadcrumb-button,
+.pagelayout-mydashboard #page-navbar .breadcrumb-button
+.pagelayout-mypublic.editing #page-navbar .breadcrumb-button,
+.pagelayout-mydashboard.editing #page-navbar .breadcrumb-button {
+    float: none;
+    text-align: center;
+}
+
+
+.has-region-content.editing #block-region-content,
 .has-region-header-first.editing #block-region-footer-first,
-.has-region-header-last.editing #block-region-footer-last,
 .has-region-header-first.editing #block-region-header-first,
+.has-region-header-last.editing #block-region-footer-last,
 .has-region-header-last.editing #block-region-header-last,
-.has-region-upper-level.editing #block-region-upper-level,
-.has-region-lower-level.editing #block-region-lower-level,
+.has-region-home-content.editing #block-region-home-content,
+.has-region-home-footer.editing #block-region-home-footer,
 .has-region-home-header.editing #block-region-home-header,
-.has-region-home-footer.editing #block-region-home-footer {
+.has-region-home-main.editing #block-region-home-main,
+.has-region-lower-level.editing #block-region-lower-level,
+.has-region-upper-level.editing #block-region-upper-level {
     border: 2px dashed #abc;
     min-height: 20px;
 }
