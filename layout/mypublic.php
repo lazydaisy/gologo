@@ -76,6 +76,7 @@ echo $OUTPUT->doctype() ?>
     <ul class="thumbnails">
       <li class="span12">
         <div class="thumbnail">
+          <?php echo $html->poster1image;?>
           <?php echo $html->poster1heading;?>
           <?php echo $html->poster1caption;?>
         </div>
@@ -89,6 +90,7 @@ echo $OUTPUT->doctype() ?>
     <ul class="thumbnails">
       <li class="span12">
         <div class="thumbnail">
+          <?php echo $html->poster2image;?>
           <?php echo $html->poster2heading;?>
           <?php echo $html->poster2caption;?>
         </div>
@@ -115,7 +117,6 @@ echo $OUTPUT->doctype() ?>
             echo $OUTPUT->page_doc_link();
             echo $OUTPUT->login_info();
             echo $html->footnote;
-            echo $OUTPUT->home_link();
         } ?>
 
     <?php echo $OUTPUT->standard_footer_html() ?>

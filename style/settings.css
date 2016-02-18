@@ -33,21 +33,27 @@ a.brand {
 
 /* Poster Styles
 -------------------------*/
-#poster1 .thumbnails {
+#poster1image-thumbnail {
     background-image: url([[setting:poster1image]]);
 }
-#poster2 .thumbnails {
+
+#poster2image-thumbnail {
     background-image: url([[setting:poster2image]]);
 }
-#poster1 .thumbnails,
-#poster2 .thumbnails {
+
+#poster1image-thumbnail,
+#poster2image-thumbnail {
     background-position: center top;
     background-repeat: no-repeat;
+    background-size: 180px 180px;
     display: block;
+    height: 180px;
+    width: 180px;
 }
-#poster1 h3,
-#poster2 h3 {
-    padding-top: 200px;
+
+#page {
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 /* Custom CSS Settings

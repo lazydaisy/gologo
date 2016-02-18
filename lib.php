@@ -223,6 +223,11 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->brandicon = html_writer::link($CFG->wwwroot, '', array('class' => 'brand'));
     }
 
+    $return->poster1image = '';
+    if (!empty($page->theme->settings->poster1image)) {
+        $return->poster1image = html_writer::tag('div', '', array('id' => 'poster1image-thumbnail'));
+    }
+
     $return->poster1heading = '';
     if (!empty($page->theme->settings->poster1heading)) {
         $return->poster1heading = html_writer::tag('h3', format_text($page->theme->settings->poster1heading));
@@ -233,6 +238,10 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->poster1caption = html_writer::tag('p', format_text($page->theme->settings->poster1caption));
     }
 
+    $return->poster2image = '';
+    if (!empty($page->theme->settings->poster2image)) {
+        $return->poster2image = html_writer::tag('div', '', array('id' => 'poster2image-thumbnail'));
+    }
 
     $return->poster2heading = '';
     if (!empty($page->theme->settings->poster2heading)) {

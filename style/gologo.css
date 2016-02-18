@@ -10,7 +10,6 @@ body {
 p, h1, h2, h3, h4, h5, h6 {
     line-height: 1.14;
 }
-
 h1, h2, h3, h4, h5, h6,
 .hero-unit h1,
 .path-calendar .maincalendar .calendar-controls .current,
@@ -38,7 +37,6 @@ h1, h2, h3, h4, h5, h6,
     font-size: 130%;
     font-weight: 600;
 }
-
 #page-header {
     padding-top: 0;
 }
@@ -167,22 +165,23 @@ h1, h2, h3, h4, h5, h6,
     background-color: white;
     border: 0 none;
 }
-
 .block .header {
     padding: 10px 0;
 }
-
 .block .header h2 {
     color: white;
     font-size: 130%;
 }
-
+.block_adminblock {
+    margin: 0 auto;
+    width: 200px;
+    max-width: 200px;
+}
 .block .calendar_filters ul {
     list-style: outside none none;
     margin: 15px;
     text-align: center;
 }
-
 .block .calendar_filters ul li {
     display: inline;
     margin: 10px 15px;
@@ -204,12 +203,23 @@ h1, h2, h3, h4, h5, h6,
 /** To style "We are trying to redirect you. Thank you for your patience" use the following CSS.**/
 
 
-#page-content .continuebutton { text-align: center; }
+#page-content .continuebutton {
+    text-align: center;
+}
 
 #page-navbar,
 .breadcrumb-nav,
 .breadcrumb-button input[type="submit"] {
     margin: 0;
+}
+
+#page-navbar {
+    padding-left: 0;
+}
+
+.dir-rtl #page-navbar :{
+    padding-left: 20px;
+    padding-right: 0;
 }
 
 /* Dock
@@ -310,7 +320,6 @@ div.backup-section + form,
 #block-region-home-footer .thumbnail p {
     text-align: center;
 }
-
 
 /* Bootstrap undo
 ------------------------------------------*/
@@ -443,18 +452,17 @@ div.backup-section + form,
     text-align: center;
 }
 
-
-.has-region-content.editing #block-region-content,
-.has-region-header-first.editing #block-region-footer-first,
-.has-region-header-first.editing #block-region-header-first,
-.has-region-header-last.editing #block-region-footer-last,
-.has-region-header-last.editing #block-region-header-last,
-.has-region-home-content.editing #block-region-home-content,
-.has-region-home-footer.editing #block-region-home-footer,
-.has-region-home-header.editing #block-region-home-header,
-.has-region-home-main.editing #block-region-home-main,
-.has-region-lower-level.editing #block-region-lower-level,
-.has-region-upper-level.editing #block-region-upper-level {
+.empty-region-content.editing #block-region-content,
+.empty-region-header-first.editing #block-region-footer-first,
+.empty-region-header-first.editing #block-region-header-first,
+.empty-region-header-last.editing #block-region-footer-last,
+.empty-region-header-last.editing #block-region-header-last,
+.empty-region-home-content.editing #block-region-home-content,
+.empty-region-home-footer.editing #block-region-home-footer,
+.empty-region-home-header.editing #block-region-home-header,
+.empty-region-home-main.editing #block-region-home-main,
+.empty-region-lower-level.editing #block-region-lower-level,
+.empty-region-upper-level.editing #block-region-upper-level {
     border: 2px dashed #abc;
     min-height: 20px;
 }
@@ -470,3 +478,56 @@ div.backup-section + form,
 .used-region-header-first.empty-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main {
     width: 100%;
 }
+.pagelayout-mypublic #bread-crumb-button,
+.pagelayout-mydashboard #bread-crumb-button {
+    width: 95%;
+    margin: 0 auto;
+    height: 35px;
+}
+
+.pagelayout-mypublic #page-navbar,
+.pagelayout-mydashboard #page-navbar {
+    margin: 0;
+    padding: 0;
+}
+
+.pagelayout-mypublic .breadcrumb-button .singlebutton,
+.pagelayout-mydashboard .breadcrumb-button .singlebutton {
+    padding: 0;
+    margin: 0;
+
+}
+
+.pagelayout-mypublic #bread-crumb-button .singlebutton div,
+.pagelayout-mydashboard #bread-crumb-button .singlebutton  div {
+    padding: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+#page-navbar .breadcrumb-nav .breadcrumb-button input[type="submit"] {
+    margin: 0 2px;
+    padding: 5px 20px;
+}
+
+.path-course-view a.reduce-sections {
+    margin-left: 0.5em;
+}
+
+.path-course-view.dir-rtl a.reduce-sections {
+    margin-left: 0;
+    margin-right: 0.5em;
+}
+
+#block-region-upper-level {
+    margin-top: 10px;
+}
+.singlebutton {
+    margin: 0;
+    width: 190px;
+    float: none;
+    display: inline-block;
+}
+

@@ -42,6 +42,8 @@ Bas Brand, David Scotson, Stuart Lamour, Mark Aberdour, and Paul Hibbitts.</p>
 <p><a href="gologo/README.txt">How to customise this theme.</a></p>
 </div></div>';
 
+$string['addsection'] = 'Add section';
+
 $string['brandicon'] = 'Brand icon';
 $string['brandicondesc'] = 'This setting allows you to add a small \'Brand\' icon into the top navbar. The icon should be no more than 35px in height, and up to 150px in width. To adjust the styles for this icon add the following CSS rule to the Custom CSS text area lower down this settings page, where \'125px\' represents the width of your brand icon.<br>
 <pre>a.brand { width: 125px; }</pre>';
@@ -54,6 +56,11 @@ $string['configtitle'] = 'GoLogo Settings';
 
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'This setting allows you to add your Custom CSS rules for the Brand icon and logo, if needed. These CSS styles relate to the GoLogo theme only.';
+
+$string['deletesection'] = 'Delete section';
+
+$string['defaultuserpicturestyles'] = 'Default user picture styles.';
+$string['defaultuserpicturestylesdesc'] = 'This setting allows you to either use the theme styled user picture or the default user picture styles as normally seen in Moodle.';
 
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
@@ -91,7 +98,4 @@ $string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
 
-$string['tryingtoredirectyou'] = '<small><p class="text-center">We are trying to redirect you</p><p class="text-center">Please <strong>CLICK HERE</strong> to continue...</p></small>';
-
-$string['defaultuserpicturestyles'] = 'Default user picture styles.';
-$string['defaultuserpicturestylesdesc'] = 'This setting allows you to either use the theme styled user picture or the default user picture styles as normally seen in Moodle.';
+$string['tryingtoredirectyou'] = '<small><p class="text-center">We are trying to redirect you,</p><p class="text-center">please <strong>CLICK HERE</strong> to continue...</p></small>';

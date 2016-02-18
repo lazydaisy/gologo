@@ -118,7 +118,6 @@ echo $OUTPUT->doctype() ?>
             echo $OUTPUT->page_doc_link();
             echo $OUTPUT->login_info();
             echo $html->footnote;
-            echo $OUTPUT->home_link();
         } ?>
 
     <?php echo $OUTPUT->standard_footer_html() ?>
