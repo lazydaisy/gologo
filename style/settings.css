@@ -20,14 +20,14 @@ a.brand {
 
 /* Brand Logo Styles
 -------------------------*/
-#page-header {
+.has-brand-logo #page-header {
     background-image: url([[setting:brandlogo]]);
     background-repeat: no-repeat;
     background-position: center top;
     padding-top: 200px;
 }
 
-.dir-rtl #page-header {
+.dir-rtl.has-brand-logo #page-header {
     background-position: right top;
 }
 

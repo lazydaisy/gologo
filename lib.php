@@ -208,6 +208,11 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
     global $CFG;
     $return = new stdClass;
 
+    $return->brandlogo = '';
+    if (!empty($page->theme->settings->brandlogo)) {
+        $return->brandlogo .= ' has-brand-logo';
+    }
+
     $return->navbarclass = '';
     if (!empty($page->theme->settings->invert)) {
         $return->navbarclass .= ' navbar-inverse';
