@@ -48,12 +48,21 @@ h1, h2, h3, h4, h5, h6,
     float: none;
     margin: 1em 0;
 }
+
+/* Usermenu Styles
+-------------------------*/
 .jsenabled .usermenu .moodle-actionmenu.show .menu {
     padding: 0;
 }
 
 .jsenabled .usermenu .moodle-actionmenu > .menu .filler {
     margin: 0 1px;
+}
+
+.usermenu .avatars img {
+    border-radius: 50% 50% 6%;
+    border-style: solid;
+    border-width: 1px;
 }
 
 /* Calendar
