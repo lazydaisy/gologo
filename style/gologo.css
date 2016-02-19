@@ -430,13 +430,14 @@ div.backup-section + form,
 .btn-small {
     font-size: 90%;
 }
+
 /* GoLogo Extras
 -------------------------*/
 
 .pagelayout-standard.user-picture-styles .page-context-header .page-header-image,
 .pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image,
 .pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image {
-    background-image: url([[pix:theme|gologo]]);
+    background-image: url([[pix:theme|mydashboard]]);
     background-position: 0 50%;
     background-repeat: no-repeat;
 }
@@ -482,16 +483,18 @@ div.backup-section + form,
     max-width: 100%;
     display: block;
 }
+
 .used-region-header-first.used-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main,
 .empty-region-header-first.used-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main,
 .used-region-header-first.empty-region-header-last.used-region-content.has-region-side-pre.docked-region-side-pre #region-main {
     width: 100%;
 }
+
 .pagelayout-mypublic #bread-crumb-button,
 .pagelayout-mydashboard #bread-crumb-button {
-    width: 95%;
-    margin: 0 auto;
-    height: 35px;
+    height: auto;
+    margin: 0 25%;
+    width: 50%;
 }
 
 .pagelayout-mypublic #page-navbar,
@@ -502,18 +505,9 @@ div.backup-section + form,
 
 .pagelayout-mypublic .breadcrumb-button .singlebutton,
 .pagelayout-mydashboard .breadcrumb-button .singlebutton {
-    padding: 0;
-    margin: 0;
-
-}
-
-.pagelayout-mypublic #bread-crumb-button .singlebutton div,
-.pagelayout-mydashboard #bread-crumb-button .singlebutton  div {
-    padding: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
+    display: block;
+    float: none;
+    margin: 0 0 5px;
 }
 
 #page-navbar .breadcrumb-nav .breadcrumb-button input[type="submit"] {
@@ -533,10 +527,7 @@ div.backup-section + form,
 #block-region-upper-level {
     margin-top: 10px;
 }
-.singlebutton {
-    margin: 0;
-    width: 190px;
-    float: none;
-    display: inline-block;
-}
 
+#block-region-upper-level .block_html.block .contents .container-fluid {
+    padding: 0;
+}
