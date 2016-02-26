@@ -57,7 +57,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
 
         foreach ($modinfo->get_section_info_all() as $section => $thissection) {
             if ($section == 0) {
-                // 0-section is displayed a little different then the others
+                // The 0-section is displayed a little different then the others.
                 if ($thissection->summary or !empty($modinfo->sections[0]) or $PAGE->user_is_editing()) {
                     echo $this->section_header($thissection, $course, false, 0);
                     echo $this->courserenderer->course_section_cm_list($course, $thissection, 0);
@@ -67,7 +67,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
                 continue;
             }
             if ($section > $course->numsections) {
-                // activities inside this section are 'orphaned', this section will be printed as 'stealth' below
+                // Activities inside this section are 'orphaned', this section will be printed as 'stealth' below.
                 continue;
             }
             // Show the section if the user is permitted to access it, OR if it's not available
@@ -103,7 +103,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
             // Print stealth sections if present.
             foreach ($modinfo->get_section_info_all() as $section => $thissection) {
                 if ($section <= $course->numsections or empty($modinfo->sections[$section])) {
-                    // this is not stealth section or it is empty
+                    // This is not stealth section or it is empty.
                     continue;
                 }
                 echo $this->stealth_section_header($section);
@@ -126,7 +126,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
             $icon = 'fa-chevron-down';
             $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
 
-            echo html_writer::link($url, $itag . ' ' . $straddsection . get_accesshide($straddsection) ,
+            echo html_writer::link($url, $itag . ' ' . $straddsection) ,
                     array('class' => 'increase-sections btn btn-default', 'title' => $straddsection));
 
             if ($course->numsections > 0) {
@@ -138,7 +138,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
                           'sesskey' => sesskey()));
                 $icon = 'fa-chevron-up';
                 $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
-                echo html_writer::link($url, $itag . ' ' . $strdeletesection . get_accesshide($strdeletesection) ,
+                echo html_writer::link($url, $itag . ' ' . $strdeletesection) ,
                     array('class' => 'reduce-sections btn btn-default', 'title' => $strdeletesection));
             }
 

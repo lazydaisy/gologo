@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the renderers for the calendar within Moodle
+ * This file contains the renderers for the calendar within Moodle.
  *
- * @copyright 2010 Sam Hemelryk
+ * @copyright 2016 byLazyDaisy.uk
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @package calendar
  */
@@ -31,16 +30,16 @@ require_once($CFG->dirroot . '/calendar/renderer.php');
 class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
 
     /**
-     * Starts the standard layout for the page
+     * Starts the standard layout for the page.
      *
      * @return string
      */
     public function start_layout() {
-        return html_writer::start_tag('div', array('class'=>'maincalendar'));
+        return html_writer::start_tag('div', array('class' => 'maincalendar'));
     }
 
     /**
-     * Creates the remainder of the layout
+     * Creates the remainder of the layout.
      *
      * @return string
      */
@@ -49,7 +48,7 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
     }
 
     /**
-     * Produces the content for the filters block (pretend block)
+     * Produces the content for the filters block (pretend block).
      *
      * @param int $courseid
      * @param int $day
@@ -63,11 +62,13 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
         $returnurl = $this->page->url;
         $returnurl->param('course', $courseid);
 
-        $content = html_writer::tag('div', calendar_filter_controls($returnurl), array('class'=>'calendar_filters filters'));
+        $content = html_writer::tag('div',
+                   calendar_filter_controls($returnurl),
+                   array('class' => 'calendar_filters filters'));
 
         return $content;
 
-   }
+    }
 
     /**
      * Produces the content for the three months block (pretend block).
@@ -94,13 +95,16 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
             $nextmonthtime['hour'], $nextmonthtime['minute']);
 
         $content  = html_writer::start_tag('div', array('class' => 'minicalendarblock1 span4'));
-        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, false, false, 'display', $calendar->courseid, $prevmonthtime);
+        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users,
+                    false, false, 'display', $calendar->courseid, $prevmonthtime);
         $content .= html_writer::end_tag('div');
         $content .= html_writer::start_tag('div', array('class' => 'minicalendarblock2 span4'));
-        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, false, false, 'display', $calendar->courseid, $calendar->time);
+        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users,
+                    false, false, 'display', $calendar->courseid, $calendar->time);
         $content .= html_writer::end_tag('div');
         $content .= html_writer::start_tag('div', array('class' => 'minicalendarblock3 span4'));
-        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users, false, false, 'display', $calendar->courseid, $nextmonthtime);
+        $content .= calendar_get_mini($calendar->courses, $calendar->groups, $calendar->users,
+                    false, false, 'display', $calendar->courseid, $nextmonthtime);
         $content .= html_writer::end_tag('div');
 
         return $content;
@@ -141,13 +145,13 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
             $time = time();
         }
 
-        $output = html_writer::start_tag('div', array('class'=>'buttons'));
+        $output = html_writer::start_tag('div', array('class' => 'buttons'));
         $output .= html_writer::start_tag('form', array('action' => CALENDAR_URL . 'event.php', 'method' => 'get'));
         $output .= html_writer::start_tag('div');
-        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name' => 'action', 'value' => 'new'));
-        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name' => 'course', 'value' => $courseid));
-        $output .= html_writer::empty_tag('input', array('type'=>'hidden', 'name' => 'time', 'value' => $time));
-        $output .= html_writer::empty_tag('input', array('type'=>'submit', 'value' => get_string('newevent', 'calendar')));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'action', 'value' => 'new'));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'course', 'value' => $courseid));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'time', 'value' => $time));
+        $output .= html_writer::empty_tag('input', array('type' => 'submit', 'value' => get_string('newevent', 'calendar')));
         $output .= html_writer::end_tag('div');
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
@@ -166,36 +170,43 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
             $returnurl = $this->page->url;
         }
 
-        $events = calendar_get_upcoming($calendar->courses, $calendar->groups, $calendar->users, 1, 100, $calendar->timestamp_today());
+        $events = calendar_get_upcoming($calendar->courses,
+                  $calendar->groups, $calendar->users, 1, 100,
+                  $calendar->timestamp_today());
 
-        $output  = html_writer::start_tag('div', array('class'=>'header'));
+        $output  = html_writer::start_tag('div', array('class' => 'header'));
         $output .= $this->course_filter_selector($returnurl, get_string('dayviewfor', 'calendar'));
         if (calendar_user_can_add_event($calendar->course)) {
             $output .= $this->add_event_button($calendar->course->id, 0, 0, 0, $calendar->time);
         }
         $output .= html_writer::end_tag('div');
-        // Controls
-        $output .= html_writer::tag('div', calendar_top_controls('day', array('id' => $calendar->courseid, 'time' => $calendar->time)), array('class'=>'controls'));
+        // Controls.
+        $output .= html_writer::tag('div', calendar_top_controls('day',
+                   array('id' => $calendar->courseid, 'time' => $calendar->time)),
+                   array('class' => 'controls'));
 
         if (empty($events)) {
             // There is nothing to display today.
-            $output .= html_writer::span(get_string('daywithnoevents', 'calendar'), 'calendar-information calendar-no-results');
+            $output .= html_writer::span(get_string('daywithnoevents', 'calendar'),
+                       'calendar-information calendar-no-results');
         } else {
             $output .= html_writer::start_tag('div', array('class' => 'eventlist'));
             $underway = array();
-            // First, print details about events that start today
+            // First, print details about events that start today.
             foreach ($events as $event) {
                 $event = new calendar_event($event);
                 $event->calendarcourseid = $calendar->courseid;
-                if ($event->timestart >= $calendar->timestamp_today() && $event->timestart <= $calendar->timestamp_tomorrow()-1) {  // Print it now
-                    $event->time = calendar_format_event_time($event, time(), null, false, $calendar->timestamp_today());
+                if ($event->timestart >= $calendar->timestamp_today() && $event->timestart <= $calendar->timestamp_tomorrow() - 1) {
+                    // Print it now...
+                    $event->time = calendar_format_event_time($event, time(), null, false,
+                                   $calendar->timestamp_today());
                     $output .= $this->event($event);
-                } else {                                                                 // Save this for later
+                } else {  // Save this for later.
                     $underway[] = $event;
                 }
             }
 
-            // Then, show a list of all events that just span this day
+            // Then, show a list of all events that just span this day.
             if (!empty($underway)) {
                 $output .= html_writer::span(get_string('spanningevents', 'calendar'),
                     'calendar-information calendar-span-multiple-days');
@@ -272,24 +283,32 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
 
         if (calendar_edit_event_allowed($event) && $showactions) {
             if (empty($event->cmid)) {
-                $editlink = new moodle_url(CALENDAR_URL.'event.php', array('action'=>'edit', 'id'=>$event->id));
-                $deletelink = new moodle_url(CALENDAR_URL.'delete.php', array('id'=>$event->id));
+                $editlink = new moodle_url(CALENDAR_URL.'event.php', array('action' => 'edit', 'id' => $event->id));
+                $deletelink = new moodle_url(CALENDAR_URL.'delete.php', array('id' => $event->id));
                 if (!empty($event->calendarcourseid)) {
                     $editlink->param('course', $event->calendarcourseid);
                     $deletelink->param('course', $event->calendarcourseid);
                 }
             } else {
-                $editlink = new moodle_url('/course/mod.php', array('update'=>$event->cmid, 'return'=>true, 'sesskey'=>sesskey()));
+                $editlink = new moodle_url('/course/mod.php',
+                            array('update' => $event->cmid, 'return' => true, 'sesskey' => sesskey()));
                 $deletelink = null;
             }
 
-            $commands  = html_writer::start_tag('div', array('class'=>'commands'));
-            $commands .= html_writer::start_tag('a', array('href'=>$editlink));
-            $commands .= html_writer::empty_tag('img', array('src'=>$this->output->pix_url('t/edit'), 'alt'=>get_string('tt_editevent', 'calendar'), 'title'=>get_string('tt_editevent', 'calendar')));
+            $commands  = html_writer::start_tag('div', array('class' => 'commands'));
+            $commands .= html_writer::start_tag('a', array('href' => $editlink));
+            $commands .= html_writer::empty_tag('img',
+                         array('src' => $this->output->pix_url('t/edit'),
+                         'alt' => get_string('tt_editevent', 'calendar'),
+                         'title' => get_string('tt_editevent', 'calendar')));
             $commands .= html_writer::end_tag('a');
             if ($deletelink != null) {
-                $commands .= html_writer::start_tag('a', array('href'=>$deletelink));
-                $commands .= html_writer::empty_tag('img', array('src'=>$this->output->pix_url('t/delete'), 'alt'=>get_string('tt_deleteevent', 'calendar'), 'title'=>get_string('tt_deleteevent', 'calendar')));
+                $commands .= html_writer::start_tag('a',
+                             array('href' => $deletelink));
+                $commands .= html_writer::empty_tag('img',
+                             array('src' => $this->output->pix_url('t/delete'),
+                             'alt' => get_string('tt_deleteevent', 'calendar'),
+                             'title' => get_string('tt_deleteevent', 'calendar')));
                 $commands .= html_writer::end_tag('a');
             }
             $commands .= html_writer::end_tag('div');
@@ -349,16 +368,16 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
         $display->tstart = make_timestamp($gy, $gm, $gd, $gh, $gmin, 0);
         $display->tend = $display->tstart + ($display->maxdays * DAYSECS) - 1;
 
-        // Align the starting weekday to fall in our display range
+        // Align the starting weekday to fall in our display range.
         // This is simple, not foolproof.
         if ($startwday < $display->minwday) {
             $startwday += $numberofdaysinweek;
         }
 
-        // Get events from database
+        // Get events from database.
         $events = calendar_get_events($display->tstart, $display->tend, $calendar->users, $calendar->groups, $calendar->courses);
         if (!empty($events)) {
-            foreach($events as $eventid => $event) {
+            foreach ($events as $eventid => $event) {
                 $event = new calendar_event($event);
                 if (!empty($event->modulename)) {
                     $cm = get_coursemodule_from_instance($event->modulename, $event->instance);
@@ -369,26 +388,27 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
             }
         }
 
-        // Extract information: events vs. time
+        // Extract information: events vs time.
         calendar_events_by_day($events, $date['mon'], $date['year'], $eventsbyday, $durationbyday, $typesbyday, $calendar->courses);
 
-        $output  = html_writer::start_tag('div', array('class'=>'header'));
+        $output  = html_writer::start_tag('div', array('class' => 'header'));
         $output .= $this->course_filter_selector($returnurl, get_string('detailedmonthviewfor', 'calendar'));
         if (calendar_user_can_add_event($calendar->course)) {
             $output .= $this->add_event_button($calendar->course->id, 0, 0, 0, $calendar->time);
         }
-        $output .= html_writer::end_tag('div', array('class'=>'header'));
-        // Controls
-        $output .= html_writer::tag('div', calendar_top_controls('month', array('id' => $calendar->courseid, 'time' => $calendar->time)), array('class' => 'controls'));
+        $output .= html_writer::end_tag('div', array('class' => 'header'));
+        // Controls.
+        $output .= html_writer::tag('div', calendar_top_controls('month',
+                   array('id' => $calendar->courseid, 'time' => $calendar->time)), array('class' => 'controls'));
 
         $table = new html_table();
-        $table->attributes = array('class'=>'calendarmonth calendartable');
+        $table->attributes = array('class' => 'calendarmonth calendartable');
         $table->summary = get_string('calendarheading', 'calendar', userdate($calendar->time, get_string('strftimemonthyear')));
         $table->data = array();
 
         // Get the day names as the header.
         $header = array();
-        for($i = $display->minwday; $i <= $display->maxwday; ++$i) {
+        for ($i = $display->minwday; $i <= $display->maxwday; ++$i) {
             $header[] = $daynames[$i % $numberofdaysinweek]['shortname'];
         }
         $table->head = $header;
@@ -399,14 +419,14 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
 
         $row = new html_table_row(array());
 
-        // Paddding (the first week may have blank days in the beginning)
-        for($i = $display->minwday; $i < $startwday; ++$i) {
+        // Paddding (the first week may have blank days in the beginning).
+        for ($i = $display->minwday; $i < $startwday; ++$i) {
             $cell = new html_table_cell('&nbsp;');
-            $cell->attributes = array('class'=>'nottoday dayblank');
+            $cell->attributes = array('class' => 'nottoday dayblank');
             $row->cells[] = $cell;
         }
 
-        // Now display all the calendar
+        // Now display all the calendar.
         $weekend = CALENDAR_DEFAULT_WEEKEND;
         if (isset($CFG->calendar_weekend)) {
             $weekend = intval($CFG->calendar_weekend);
@@ -415,17 +435,18 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
         $daytime = strtotime('-1 day', $display->tstart);
         for ($day = 1; $day <= $display->maxdays; ++$day, ++$dayweek) {
             $daytime = strtotime('+1 day', $daytime);
-            if($dayweek > $display->maxwday) {
-                // We need to change week (table row)
+            if ($dayweek > $display->maxwday) {
+                // We need to change week (table row).
                 $table->data[] = $row;
                 $row = new html_table_row(array());
                 $dayweek = $display->minwday;
                 ++$week;
             }
 
-            // Reset vars
+            // Reset vars.
             $cell = new html_table_cell();
-            $dayhref = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php', array('view' => 'day', 'course' => $calendar->courseid)), 0, 0, 0, $daytime);
+            $dayhref = calendar_get_link_href(new moodle_url(CALENDAR_URL.'view.php',
+                       array('view' => 'day', 'course' => $calendar->courseid)), 0, 0, 0, $daytime);
 
             $cellclasses = array();
 
@@ -434,19 +455,21 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
                 $cellclasses[] = 'weekend';
             }
 
-            // Special visual fx if an event is defined
+            // Special visual fx if an event is defined.
             if (isset($eventsbyday[$day])) {
-                if(count($eventsbyday[$day]) == 1) {
+                if (count($eventsbyday[$day]) == 1) {
                     $title = get_string('oneevent', 'calendar');
                 } else {
                     $title = get_string('manyevents', 'calendar', count($eventsbyday[$day]));
                 }
-                $cell->text = html_writer::tag('div', html_writer::link($dayhref, $day, array('title'=>$title)), array('class'=>'day'));
+                $cell->text = html_writer::tag('div',
+                              html_writer::link($dayhref, $day,
+                              array('title' => $title)), array('class' => 'day'));
             } else {
-                $cell->text = html_writer::tag('div', $day, array('class'=>'day'));
+                $cell->text = html_writer::tag('div', $day, array('class' => 'day'));
             }
 
-            // Special visual fx if an event spans many days
+            // Special visual fx if an event spans many days.
             $durationclass = false;
             if (isset($typesbyday[$day]['durationglobal'])) {
                 $durationclass = 'duration_global';
@@ -462,42 +485,44 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
                 $cellclasses[] = $durationclass;
             }
 
-            // Special visual fx for today
+            // Special visual fx for today.
             if ($display->thismonth && $day == $date['mday']) {
                 $cellclasses[] = 'day today';
             } else {
                 $cellclasses[] = 'day nottoday';
             }
-            $cell->attributes = array('class'=>join(' ',$cellclasses));
+            $cell->attributes = array('class' => join(' ', $cellclasses));
 
             if (isset($eventsbyday[$day])) {
-                $cell->text .= html_writer::start_tag('ul', array('class'=>'events-new'));
-                foreach($eventsbyday[$day] as $eventindex) {
-                    // If event has a class set then add it to the event <li> tag
+                $cell->text .= html_writer::start_tag('ul', array('class' => 'events-new'));
+                foreach ($eventsbyday[$day] as $eventindex) {
+                    // If event has a class set then add it to the event <li> tag.
                     $attributes = array();
                     if (!empty($events[$eventindex]->class)) {
                         $attributes['class'] = $events[$eventindex]->class;
                     }
-                    $dayhref->set_anchor('event_'.$events[$eventindex]->id);
+                    $dayhref->set_anchor('event_' . $events[$eventindex]->id);
                     $link = html_writer::link($dayhref, format_string($events[$eventindex]->name, true));
                     $cell->text .= html_writer::tag('li', $link, $attributes);
                 }
                 $cell->text .= html_writer::end_tag('ul');
             }
             if (isset($durationbyday[$day])) {
-                $cell->text .= html_writer::start_tag('ul', array('class'=>'events-underway'));
-                foreach($durationbyday[$day] as $eventindex) {
-                    $cell->text .= html_writer::tag('li', '['.format_string($events[$eventindex]->name,true).']', array('class'=>'events-underway'));
+                $cell->text .= html_writer::start_tag('ul', array('class' => 'events-underway'));
+                foreach ($durationbyday[$day] as $eventindex) {
+                    $cell->text .= html_writer::tag('li',
+                                   '[' . format_string($events[$eventindex]->name, true) . ']',
+                                   array('class' => 'events-underway'));
                 }
                 $cell->text .= html_writer::end_tag('ul');
             }
             $row->cells[] = $cell;
         }
 
-        // Paddding (the last week may have blank days at the end)
-        for($i = $dayweek; $i <= $display->maxwday; ++$i) {
+        // Paddding (the last week may have blank days at the end).
+        for ($i = $dayweek; $i <= $display->maxwday; ++$i) {
             $cell = new html_table_cell('&nbsp;');
-            $cell->attributes = array('class'=>'nottoday dayblank');
+            $cell->attributes = array('class' => 'nottoday dayblank');
             $row->cells[] = $cell;
         }
         $table->data[] = $row;
@@ -514,15 +539,21 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
      * @param int $maxevents
      * @return string
      */
-    public function show_upcoming_events(calendar_information $calendar, $futuredays, $maxevents, moodle_url $returnurl = null) {
+    public function show_upcoming_events(calendar_information $calendar,
+                                         $futuredays, $maxevents,
+                                         moodle_url $returnurl = null) {
 
         if ($returnurl === null) {
             $returnurl = $this->page->url;
         }
 
-        $events = calendar_get_upcoming($calendar->courses, $calendar->groups, $calendar->users, $futuredays, $maxevents);
+        $events = calendar_get_upcoming($calendar->courses,
+                                        $calendar->groups,
+                                        $calendar->users,
+                                        $futuredays,
+                                        $maxevents);
 
-        $output  = html_writer::start_tag('div', array('class'=>'header'));
+        $output  = html_writer::start_tag('div', array('class' => 'header'));
         $output .= $this->course_filter_selector($returnurl, get_string('upcomingeventsfor', 'calendar'));
         if (calendar_user_can_add_event($calendar->course)) {
             $output .= $this->add_event_button($calendar->course->id);
@@ -533,14 +564,16 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
             $output .= html_writer::start_tag('div', array('class' => 'eventlist'));
             foreach ($events as $event) {
                 // Convert to calendar_event object so that we transform description
-                // accordingly
+                // accordingly.
                 $event = new calendar_event($event);
                 $event->calendarcourseid = $calendar->courseid;
                 $output .= $this->event($event);
             }
             $output .= html_writer::end_tag('div');
         } else {
-            $output .= html_writer::span(get_string('noupcomingevents', 'calendar'), 'calendar-information calendar-no-results');
+            $output .= html_writer::span(get_string('noupcomingevents',
+                                                    'calendar'),
+                                                    'calendar-information calendar-no-results');
         }
 
         return $output;
@@ -560,8 +593,9 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
             return '';
         }
 
-        if (has_capability('moodle/calendar:manageentries', context_system::instance()) && !empty($CFG->calendar_adminseesall)) {
-            $courses = get_courses('all', 'c.shortname','c.id,c.shortname');
+        if (has_capability('moodle/calendar:manageentries', context_system::instance())
+                            && !empty($CFG->calendar_adminseesall)) {
+            $courses = get_courses('all', 'c.shortname' , 'c.id, c.shortname');
         } else {
             $courses = enrol_get_my_courses();
         }
@@ -659,13 +693,14 @@ class theme_gologo_core_calendar_renderer extends core_calendar_renderer {
      */
     protected function subscription_action_form($subscription, $courseid) {
         // Assemble form for the subscription row.
-        $html = html_writer::start_tag('form', array('action' => new moodle_url('/calendar/managesubscriptions.php'), 'method' => 'post'));
+        $html = html_writer::start_tag('form',
+                array('action' => new moodle_url('/calendar/managesubscriptions.php'), 'method' => 'post'));
         if (empty($subscription->url)) {
             // Don't update an iCal file, which has no URL.
             $html .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'pollinterval', 'value' => '0'));
         } else {
             // Assemble pollinterval control.
-            $html .= html_writer::start_tag('div', array('class' => 'pull-left;')); // BS notation change from style to class.
+            $html .= html_writer::start_tag('div', array('class' => 'pull-left;'));
             $html .= html_writer::start_tag('select', array('name' => 'pollinterval'));
             foreach (calendar_get_pollinterval_choices() as $k => $v) {
                 $attributes = array();
