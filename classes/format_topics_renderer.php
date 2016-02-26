@@ -126,7 +126,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
             $icon = 'fa-chevron-down';
             $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
 
-            echo html_writer::link($url, $itag . ' ' . $straddsection) ,
+            echo html_writer::link($url, $itag . ' ' . $straddsection ,
                     array('class' => 'increase-sections btn btn-default', 'title' => $straddsection));
 
             if ($course->numsections > 0) {
@@ -138,7 +138,7 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
                           'sesskey' => sesskey()));
                 $icon = 'fa-chevron-up';
                 $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
-                echo html_writer::link($url, $itag . ' ' . $strdeletesection) ,
+                echo html_writer::link($url, $itag . ' ' . $strdeletesection ,
                     array('class' => 'reduce-sections btn btn-default', 'title' => $strdeletesection));
             }
 
