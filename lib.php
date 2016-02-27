@@ -47,7 +47,7 @@ function theme_gologo_process_css($css, $theme) {
     $brandicon = $theme->setting_file_url('brandicon', 'brandicon');
     $css = theme_gologo_set_brandicon($css, $brandicon);
 
-    // Set the background image for the logo.
+    // Set the background image for the 'Brand' logo.
     $brandlogo = $theme->setting_file_url('brandlogo', 'brandlogo');
     $css = theme_gologo_set_brandlogo($css, $brandlogo);
 
@@ -210,7 +210,7 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
 
     $return->brandlogo = '';
     if (!empty($page->theme->settings->brandlogo)) {
-        $return->brandlogo .= ' has-brand-logo';
+        $return->brandlogo .= '<div id="brand-logo"></div>';
     }
 
     $return->navbarclass = '';
@@ -218,9 +218,13 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->navbarclass .= ' navbar-inverse';
     }
 
-    $return->bodyclass = '';
-    if (empty($page->theme->settings->defaultuserpicturestyles)) {
-        $return->bodyclass .= 'user-picture-styles';
+    $return->bodyclasses = '';
+    if (!empty($page->theme->settings->defaultuserpicturestyles) && !empty($page->theme->settings->brandlogo)) {
+        $return->bodyclasses .= ' has-brand-logo ';
+    }
+
+    if (empty($page->theme->settings->defaultuserpicturestyles) && empty($page->theme->settings->brandlogo)) {
+        $return->bodyclasses .= ' has-user-picture-styles ';
     }
 
     $return->brandicon = html_writer::link($CFG->wwwroot, '<i class="fa fa-home"></i>', array('class' => 'brand'));

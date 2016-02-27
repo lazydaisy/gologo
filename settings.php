@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
 
-    $temp = new admin_settingpage('theme_gologo', get_string('configtitle','theme_gologo'));
+    $temp = new admin_settingpage('theme_gologo', get_string('configtitle', 'theme_gologo'));
 
     // Invert navbar to use solid colour background. .
     $name = 'theme_gologo/invert';
@@ -61,7 +61,7 @@ if ($ADMIN->fulltree) {
 
     // Brand icon file setting.
     $name = 'theme_gologo/brandicon';
-    $title = get_string('brandicon','theme_gologo');
+    $title = get_string('brandicon', 'theme_gologo');
     $description = get_string('brandicondesc', 'theme_gologo');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'brandicon');
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -69,7 +69,7 @@ if ($ADMIN->fulltree) {
 
     // Brand Logo file setting.
     $name = 'theme_gologo/brandlogo';
-    $title = get_string('brandlogo','theme_gologo');
+    $title = get_string('brandlogo', 'theme_gologo');
     $description = get_string('brandlogodesc', 'theme_gologo');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'brandlogo');
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -77,7 +77,7 @@ if ($ADMIN->fulltree) {
 
     // First Poster image file setting.
     $name = 'theme_gologo/poster1image';
-    $title = get_string('poster1image','theme_gologo');
+    $title = get_string('poster1image', 'theme_gologo');
     $description = get_string('poster1imagedesc', 'theme_gologo');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'poster1image');
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -85,7 +85,7 @@ if ($ADMIN->fulltree) {
 
     // First Poster thumbnail heading <h3> setting.
     $name = 'theme_gologo/poster1heading';
-    $title = get_string('poster1heading','theme_gologo');
+    $title = get_string('poster1heading', 'theme_gologo');
     $description = get_string('poster1headingdesc', 'theme_gologo');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default );
@@ -103,7 +103,7 @@ if ($ADMIN->fulltree) {
 
     // Second Poster image file setting.
     $name = 'theme_gologo/poster2image';
-    $title = get_string('poster2image','theme_gologo');
+    $title = get_string('poster2image', 'theme_gologo');
     $description = get_string('poster1imagedesc', 'theme_gologo');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'poster2image');
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -111,7 +111,7 @@ if ($ADMIN->fulltree) {
 
     // Second Poster thumbnail heading <h3> setting.
     $name = 'theme_gologo/poster2heading';
-    $title = get_string('poster2heading','theme_gologo');
+    $title = get_string('poster2heading', 'theme_gologo');
     $description = get_string('poster2headingdesc', 'theme_gologo');
     $default = '';
     $setting = new admin_setting_configtext($name, $title, $description, $default );

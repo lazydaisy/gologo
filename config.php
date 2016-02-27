@@ -46,61 +46,61 @@ $THEME->javascripts_footer = array('gologo');
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array(),
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'upper-level'),
         'defaultregion' => 'upper-level',
     ),
     // Main course page.
     'course' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'upper-level', 'lower-level'),
         'defaultregion' => 'lower-level',
         'options' => array('langmenu' => true),
     ),
     'coursecategory' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'upper-level', 'lower-level'),
         'defaultregion' => 'lower-level',
     ),
     // Part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'lower-level'),
         'defaultregion' => 'lower-level',
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'homepage.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'home-header', 'home-main', 'home-content', 'home-footer'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
     ),
     // Server administration scripts.
     'admin' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'lower-level'),
         'defaultregion' => 'lower-level',
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'mydashboard.php',
-        'regions' => array('side-pre', 'header-first', 'header-last', 'footer-first', 'footer-last','lower-level',),
+        'file' => 'layout.php',
+        'regions' => array('side-pre', 'footer-first', 'footer-last', 'lower-level'),
         'defaultregion' => 'side-pre',
         'options' => array('langmenu' => true),
     ),
     // My public page.
     'mypublic' => array(
-        'file' => 'mypublic.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
     'login' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array(),
         'options' => array('langmenu' => true),
     ),
@@ -130,7 +130,7 @@ $THEME->layouts = array(
     ),
     // The pagelayout used for reports.
     'report' => array(
-        'file' => 'default.php',
+        'file' => 'layout.php',
         'regions' => array('side-pre', 'lower-level'),
         'defaultregion' => 'lower-level',
     ),

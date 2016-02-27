@@ -158,16 +158,15 @@ a.brand,
     background-color: @white;
 }
 
-.pagelayout-standard.user-picture-styles .page-context-header .page-header-image,
-.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image,
-.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image {
+.pagelayout-mydashboard.has-user-picture-styles .page-context-header .page-header-image,
+.pagelayout-mypublic.has-user-picture-styles .page-context-header .page-header-image {
+/**
     background-color: @gologoColor;
     border: 3px solid @gologoColorHover;
-    box-shadow: 1px 1px 3px 20px @gologoColorHover;
-}
-.pagelayout-standard.user-picture-styles .page-context-header .page-header-image img.userpicture,
-.pagelayout-mydashboard.user-picture-styles .page-context-header .page-header-image img.userpicture,
-.pagelayout-mypublic.user-picture-styles .page-context-header .page-header-image img.userpicture {
+    box-shadow: 1px 1px 3px 10px @gologoColorHover;
+ **/}
+.pagelayout-mydashboard.has-user-picture-styles .page-context-header .page-header-image img.userpicture,
+.pagelayout-mypublic.has-user-picture-styles .page-context-header .page-header-image img.userpicture {
     border: 1px solid @gologoColorHover;
 }
 .page-context-header span.header-button-title:hover {
