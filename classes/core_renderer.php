@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once($CFG->dirroot. '/theme/bootstrapbase/renderers.php');
+require_once($CFG->dirroot . '/theme/bootstrapbase/renderers.php');
 
 class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
 
@@ -106,20 +106,21 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
 
         } else if (!empty($CFG->target_release) && $CFG->target_release != $CFG->release) {
             // Special case for during install/upgrade.
-            return '<div class="sitelink">'.
-                   '<a title="Moodle" href="http://docs.moodle.org/en/Administrator_documentation"
-                   onclick="this.target=\'_blank\'">' . '<img style="width:100px;height:30px"
-                   src="' . $this->pix_url('moodlelogo') . '" alt="moodlelogo" /></a></div>';
-
+            return html_writer::div('sitelink',
+                   html_writer::link('http://docs.moodle.org/en/Administrator_documentation
+                   onclick="this.target=_blank"',
+                   html_writer::tag('img',
+                   array('src' => $this->pix_url('moodlelogo'), 'width' => '100px', 'height' => '30px', 'alt' => 'moodlelogo'))));
         } else if ($this->page->course->id == $SITE->id || strpos($this->page->pagetype, 'course-view') === 0) {
-            return '<div class="homelink"><a class="btn btn-small" href="' . $CFG->wwwroot . '/">
-            <i class="fa fa-home"></i>&nbsp;&nbsp;' . get_string('home') . '</a></div>';
-
+            return html_writer::div('homelink',
+                                html_writer::link(new moodle_url('/'),
+                                html_writer::tag('i', array('class' => 'fa fa-home')). ' ' . get_string('home'),
+                                array('class' => 'btn btn-small')));
         } else {
-            return '<div class="homelink"><a class="btn btn-small" href="'
-            . $CFG->wwwroot . '/course/view.php?id=' . $this->page->course->id
-            . '"><i class="icon-home"></i>&nbsp;&nbsp;' .
-            format_string($this->page->course->shortname, true, array('context' => $this->page->context)) . '</a></div>';
+            return html_writer::div('homelink',
+                   html_writer::link(new moodle_url('/course/view.php', array('id' => $this->page->course->id)),
+                   html_writer::tag('i', array('class' => 'icon-home')) . ' ' . format_string($this->page->course->shortname, true, array('context' => $this->page->context)),
+                   array('class' => 'btn btn-small')));
         }
     }
 
@@ -148,10 +149,10 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             $realuser = session_get_realuser();
             $fullname = fullname($realuser, true);
             if ($withlinks) {
-                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()
-                ."\">$fullname</a>] ";
+                $realuserinfo = html_writer::link(new moodle_url('/course/loginas.php', array('id' => $course->id, 'sesskey' => sesskey())),
+                $fullname);
             } else {
-                $realuserinfo = " [$fullname] ";
+                $realuserinfo = $fullname;
             }
         } else {
             $realuserinfo = '';
@@ -168,7 +169,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page).
             if ($withlinks) {
-                $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\">$fullname</a>";
+                $username = html_writer::link(new moodle_url('/user/profile.php', array('id'=>$USER->id)), $fullname);
             } else {
                 $username = $fullname;
             }
@@ -192,15 +193,16 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                 }
                 $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename;
                 if ($withlinks) {
-                    $loggedinas .= ' (<a href="$CFG->wwwroot/course/view.php?id=$course->id&amp;switchrole=0&amp;sesskey='.sesskey()
-                    . '">' . get_string('switchrolereturn') . '</a>)';
+                    $loggedinas .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id, 'switchrole' => '0', 'sesskey' => sesskey())),
+                    get_string('switchrolereturn'));
                 }
             } else {
                 $loggedinas = $realuserinfo.get_string('loggedinas', 'moodle', $username);
                 if ($withlinks) {
-                    $loggedinas .= '&nbsp;&nbsp;<br><a class="btn btn-small" href="'
-                    . $CFG->wwwroot . '/login/logout.php?sesskey=' . sesskey() . '">
-                    <i class="fa fa-sign-out"></i> ' . get_string('logout') . '</a>';
+                    $loggedinas .= '&nbsp;&nbsp;<br>' .
+                    html_writer::link(new moodle_url('/login/logout.php', array('sesskey' => sesskey())),
+                    html_writer::tag('i', ''. array('class' => 'fa fa-sign-out')) . get_string('logout'),
+                                 array('btn' => 'btn-small'));
                 }
             }
         } else {
@@ -218,13 +220,14 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             if (!empty($CFG->displayloginfailures)) {
                 if (!isguestuser()) {
                     // Include this file only when required.
-                    require_once($CFG->dirroot . '/user/lib.php');
+                    require_once(new moodle_url('/user/lib.php'));
+
                     if ($count = user_count_login_failures($USER)) {
                         $loggedinas .= '<div class="loginfailures">';
                         $a = new stdClass();
                         $a->attempts = $count;
                         $loggedinas .= get_string('failedloginattempts', '', $a);
-                        if (file_exists("$CFG->dirroot/report/log/index.php") and has_capability('report/log:view',
+                        if (file_exists (new moodle_url('/report/log/index.php')) and has_capability('report/log:view',
                             context_system::instance())) {
                             $loggedinas .= ' ('.html_writer::link(new moodle_url('/report/log/index.php',
                                                 array('chooselog' => 1, 'id' => 0 ,
@@ -360,7 +363,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
      * @return string HTML to display the main header.
      */
     public function full_header() {
-        $html = html_writer::start_tag('header', array('id' => 'page-header', 'class' => 'clearfix'));
+        $html = html_writer::start_tag('div', array('id' => 'page-header', 'class' => 'clearfix'));
         $html .= $this->context_header();
         $html .= html_writer::start_div('clearfix', array('id' => 'page-navbar'));
         $html .= html_writer::tag('nav', $this->navbar(), array('class' => 'breadcrumb-nav'));
@@ -369,7 +372,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         $html .= html_writer::end_div();
         $html .= html_writer::end_div();
         $html .= html_writer::tag('div', $this->course_header(), array('id' => 'course-header'));
-        $html .= html_writer::end_tag('header');
+        $html .= html_writer::end_tag('div');
         return $html;
     }
 
