@@ -169,7 +169,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page).
             if ($withlinks) {
-                $username = html_writer::link(new moodle_url('/user/profile.php', array('id'=>$USER->id)), $fullname);
+                $username = html_writer::link(new moodle_url('/user/profile.php', array('id' => $USER->id)), $fullname);
             } else {
                 $username = $fullname;
             }
