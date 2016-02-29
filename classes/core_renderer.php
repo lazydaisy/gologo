@@ -205,8 +205,8 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                 if ($withlinks) {
                     $loggedinas .= '&nbsp;&nbsp;<br>' .
                     html_writer::link(new moodle_url('/login/logout.php', array('sesskey' => sesskey())),
-                    html_writer::tag('i', ''. array('class' => 'fa fa-sign-out')) . get_string('logout'),
-                                 array('btn' => 'btn-small'));
+                    html_writer::tag('i', '', array('class' => 'fa fa-sign-out')) . get_string('logout'),
+                                 array('class' => 'btn btn-small btn-default'));
                 }
             }
         } else {
