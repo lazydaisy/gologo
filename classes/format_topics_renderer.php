@@ -135,15 +135,15 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
                     array('courseid' => $course->id,
                           'increase' => false,
                           'sesskey' => sesskey()));
-
+            }
                 // Define content of button links.
                 $itag = $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
+                // Return contents.
                 $content .= html_writer::link($url,
                             $itag . ' ' . $section,
-                            array('class' => $classes . 'btn btn-default', 'title' => $section));
+                            array('class' => $classes . ' btn btn-default', 'title' => $section));
 
                 return $content
-            }
 
             echo html_writer::end_tag('div');
         } else {
