@@ -321,7 +321,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         // Image data.
         if (isset($contextheader->imagedata)) {
             // Header specific image.
-            $html .= html_writer::div($contextheader->imagedata, 'page-header-image');
+            $html .= html_writer::div($contextheader->imagedata, 'thumbnails page-header-image');
         }
 
         // Headings.
@@ -342,7 +342,10 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                     if ($button['buttontype'] === 'message') {
                         message_messenger_requirejs();
                     }
-                    $image = html_writer::tag('i', '', array('class' => 'fa fa-comment'));
+                    $image = $this->pix_icon($button['formattedimage'], $button['title'], 'moodle', array(
+                        'class' => 'iconsmall',
+                        'role' => 'presentation'
+                    ));
                     $image .= html_writer::span($button['title'], 'header-button-title');
                 } else {
                     $image = html_writer::empty_tag('img', array(
@@ -350,9 +353,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                         'role' => 'presentation'
                     ));
                 }
-                $html .= html_writer::link($button['url'],
-                         html_writer::tag('span', $image),
-                         $button['linkattributes']);
+                $html .= html_writer::link($button['url'], html_writer::tag('span', $image), $button['linkattributes']);
             }
             $html .= html_writer::end_div();
         }
