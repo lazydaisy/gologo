@@ -119,7 +119,8 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         } else {
             return html_writer::div('homelink',
                    html_writer::link(new moodle_url('/course/view.php', array('id' => $this->page->course->id)),
-                   html_writer::tag('i', array('class' => 'icon-home')) . ' ' . format_string($this->page->course->shortname, true, array('context' => $this->page->context)),
+                   html_writer::tag('i', array('class' => 'icon-home')) . ' ' .
+                   format_string($this->page->course->shortname, true, array('context' => $this->page->context)),
                    array('class' => 'btn btn-small')));
         }
     }
@@ -149,7 +150,8 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             $realuser = session_get_realuser();
             $fullname = fullname($realuser, true);
             if ($withlinks) {
-                $realuserinfo = html_writer::link(new moodle_url('/course/loginas.php', array('id' => $course->id, 'sesskey' => sesskey())),
+                $realuserinfo = html_writer::link(new moodle_url('/course/loginas.php',
+                array('id' => $course->id, 'sesskey' => sesskey())),
                 $fullname);
             } else {
                 $realuserinfo = $fullname;
@@ -169,7 +171,8 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             $fullname = fullname($USER, true);
             // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page).
             if ($withlinks) {
-                $username = html_writer::link(new moodle_url('/user/profile.php', array('id' => $USER->id)), $fullname);
+                $username = html_writer::link(new moodle_url('/user/profile.php',
+                            array('id' => $USER->id)), $fullname);
             } else {
                 $username = $fullname;
             }
@@ -193,8 +196,9 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                 }
                 $loggedinas = get_string('loggedinas', 'moodle', $username).$rolename;
                 if ($withlinks) {
-                    $loggedinas .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id, 'switchrole' => '0', 'sesskey' => sesskey())),
-                    get_string('switchrolereturn'));
+                    $loggedinas .= html_writer::link(new moodle_url('/course/view.php',
+                                   array('id' => $course->id, 'switchrole' => '0', 'sesskey' => sesskey())),
+                                   get_string('switchrolereturn'));
                 }
             } else {
                 $loggedinas = $realuserinfo.get_string('loggedinas', 'moodle', $username);

@@ -116,30 +116,33 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
             echo html_writer::start_tag('div',
                 array('id' => 'changenumsections', 'class' => 'mdl-right'));
 
-            // Increase number of sections.
-            $straddsection = get_string('addsection', 'theme_gologo');
+            // Increase number of sections (Add section).
+            $content = '';
+            $section = get_string('addsection', 'theme_gologo');
+            $icon = 'fa-chevron-down';
+            $classes = 'increase-sections';
             $url = new moodle_url('/course/changenumsections.php',
                 array('courseid' => $course->id,
                       'increase' => true,
                       'sesskey' => sesskey()));
 
-            $icon = 'fa-chevron-down';
-            $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
-
-            echo html_writer::link($url, $itag . ' ' . $straddsection ,
-                    array('class' => 'increase-sections btn btn-default', 'title' => $straddsection));
-
             if ($course->numsections > 0) {
                 // Reduce number of sections sections.
-                $strdeletesection = get_string('deletesection', 'theme_gologo');
+                $section = get_string('deletesection', 'theme_gologo');
+                $icon = 'fa-chevron-up';
+                $classes = 'reduce-sections';
                 $url = new moodle_url('/course/changenumsections.php',
                     array('courseid' => $course->id,
                           'increase' => false,
                           'sesskey' => sesskey()));
-                $icon = 'fa-chevron-up';
-                $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
-                echo html_writer::link($url, $itag . ' ' . $strdeletesection ,
-                    array('class' => 'reduce-sections btn btn-default', 'title' => $strdeletesection));
+
+                // Define content of button links.
+                $itag = $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
+                $content .= html_writer::link($url,
+                            $itag . ' ' . $section,
+                            array('class' => $classes . 'btn btn-default', 'title' => $section));
+
+                return $content
             }
 
             echo html_writer::end_tag('div');
