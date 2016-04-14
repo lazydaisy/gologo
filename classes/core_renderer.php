@@ -375,7 +375,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                           'title' => $alt,
                           'alt' => $alt));
 
-        return $content;
+                    return $content;
 
     }
 }

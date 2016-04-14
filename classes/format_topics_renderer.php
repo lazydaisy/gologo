@@ -142,8 +142,8 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
                     echo html_writer::link($url,
                                 $itag . ' ' . $deletesection,
                                 array('class' => $classes . ' btn btn-default', 'title' => $deletesection));
-            }
-            echo html_writer::end_tag('div');
+                }
+                echo html_writer::end_tag('div');
         } else {
             echo $this->end_section_list();
         }
