@@ -186,12 +186,10 @@ h1, h2, h3, h4, h5, h6,
 }
 .block .calendar_filters ul li {
     display: inline;
-    margin: 10px 15px;
 }
 .block .content {
     padding: 0.5em 0;
 }
-
 .block .header {
     padding: 10px 0;
 }
@@ -204,33 +202,15 @@ h1, h2, h3, h4, h5, h6,
     line-height: 24px;
 }
 
-/* Styles for Redirect Message
-------------------------------------------*/
-
-/** To style "All caches were purged" use the following CSS: **/
-
-
-.pagelayout-redirect #page-content .alert.alert-block.alert-info { width: 75%; margin: 0 auto; }
-
-
-/** To style "We are trying to redirect you. Thank you for your patience" use the following CSS.**/
-
-
-#page-content .continuebutton {
-    text-align: center;
-}
-
 #page-navbar,
 .breadcrumb-nav,
 .breadcrumb-button input[type="submit"] {
     margin: 0;
 }
-
 #page-navbar {
     padding-left: 0;
 }
-
-.dir-rtl #page-navbar :{
+.dir-rtl #page-navbar {
     padding-left: 20px;
     padding-right: 0;
 }
@@ -244,7 +224,6 @@ h1, h2, h3, h4, h5, h6,
 .dir-rtl #dockeditempanel .dockeditempanel_hd h2 {
     float: right;
 }
-
 
 /* Experimental - Frontpage
 -----------------------------*/
@@ -414,7 +393,6 @@ div.backup-section + form,
 .breadcrumb a:link,
 .breadcrumb a:visited {
     color: white;
-    font-size: 110%;
     font-weight: bold;
 }
 .breadcrumb a:hover,
@@ -550,15 +528,13 @@ div.backup-section + form,
 #dock .dockeditem.firstdockitem {
     margin-top: 0;
 }
+
+/** Hide region-home-main block-region if empty and not editing **/
 .empty-region-home-main #block-region-home-main {
     display: none;
 }
 .editing.empty-region-home-main #block-region-home-main {
     display: block;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-    vertical-align: text-middle;
 }
 
 /* Carousel base class */
@@ -583,4 +559,3 @@ div.backup-section + form,
   min-width: 100%;
   height: 500px;
 }
-

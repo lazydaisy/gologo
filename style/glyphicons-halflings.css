@@ -8,21 +8,18 @@ in an anchor link tag like so...
 <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
 ----------------------------------------------------------------**/
 
-/* Import font
--------------------------*/
-
+/** Import font **/
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(glyphicons-halflings-regular.eot);
   src: url([[font:theme|glyphicons-halflings-regular.eot]]) format('embedded-opentype'),
-       url([[font:theme|glyphicons-halflings-regular.svg]]) format('svg');
+       url([[font:theme|glyphicons-halflings-regular.svg]]) format('svg'),
        url([[font:theme|glyphicons-halflings-regular.ttf]]) format('truetype'),
        url([[font:theme|glyphicons-halflings-regular.woff]]) format('woff'),
        url([[font:theme|glyphicons-halflings-regular.woff]]) format('woff2'),
 }
 
-
-// Catchall baseclass
+/** Catchall baseclass **/
 .glyphicon {
     display: inline-block;
     font-family: 'Glyphicons Halflings';
@@ -35,7 +32,7 @@ in an anchor link tag like so...
      -webkit-font-smoothing: antialiased;
 }
 
-// Individual icons
+/** Individual icons **/
 .glyphicon-asterisk:before { content: "\2a"; }
 .glyphicon-plus:before { content: "\2b"; }
 .glyphicon-euro,
