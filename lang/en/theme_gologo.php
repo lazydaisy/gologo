@@ -98,4 +98,4 @@ $string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
 
-$string['tryingtoredirectyou'] = '<small><p class="text-center">We are trying to redirect you,</p><p class="text-center">please <strong>CLICK HERE</strong> to continue...</p></small>';
+$string['tryingtoredirectyou'] = '<span class="text-center">We are trying to redirect you click to continue...<br><i class="fa fa-spinner fa-pulse fa-3x"></i><span>';

@@ -3,7 +3,7 @@
 
 /* Brand Icon Styles
 -------------------------*/
-a.brand {
+.has-brand-icon a.brand {
     background-image: url([[setting:brandicon]]);
     background-position: 20px 50%;
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@ a.brand {
     width: 20px;
 }
 
-.dir-rtl a.brand {
+.has-brand-icon.dir-rtl a.brand {
     background-position: 98.5% 50%;
 }
 
@@ -23,8 +23,10 @@ a.brand {
 .has-brand-logo #brand-logo {
     background-image: url([[setting:brandlogo]]);
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: left top;
     background-size: auto;
+    height: 100px;
+    width: auto;
 }
 
 .dir-rtl.has-brand-logo #brand-logo {
@@ -49,11 +51,6 @@ a.brand {
     display: block;
     height: 180px;
     width: 180px;
-}
-
-#page {
-    max-width: 1024px;
-    margin: 0 auto;
 }
 
 /* Custom CSS Settings

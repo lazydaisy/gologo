@@ -2,12 +2,13 @@
  * Import all the rules from the parent.
  */
  @import "../../bootstrapbase/less/moodle.less";
+ @import "gologo/coursebox";
 
 // Set theme colours.
 
 @gologoColor:                            #3291D3;
 @gologoLinkColor:                        @white;
-@gologoColorHover:                       lighten(@gologoColor, 25%);
+@gologoColorHover:                       lighten(@gologoColor, 15%);
 
 // Inverted navbar
 @navbarInverseBackground:                @gologoColor;
@@ -23,6 +24,9 @@
 
 @navbarInverseBrandColor:                @gologoLinkColor;
 
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+@iconGreySpritePath:     "../img/glyphicons-halflings-grey.png";
 
 /* Navbar
 -------------------------*/
@@ -74,9 +78,10 @@
   }
 
   // Dividers in navbar
-  .divider-vertical {
-    border-left-color: @navbarInverseBackground;
-    border-right-color: @navbarInverseBackgroundHighlight;
+  .navbar-inverse .nav .divider,
+  .nav .divider {
+    border-left-color: darken(@navbarInverseBackground, 10%);
+    border-right-color: darken(@navbarInverseBackgroundHighlight, 5%);
   }
 
   // Dropdowns
@@ -101,7 +106,6 @@
     border-top-color: @navbarInverseLinkColorActive;
     border-bottom-color: @navbarInverseLinkColorActive;
   }
-
 
   // Navbar collapse button
   .btn-navbar {
@@ -130,13 +134,21 @@ a,
 a:link,
 a:visited {
     color: @gologoColor;
+    text-decoration: none;
 }
 a:hover,
 a:focus,
 a:active {
     color: @gologoColorHover;
 }
-
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
 h1, h2, h3, h4, h5, h6,
 a.brand,
 .hero-unit h1,
@@ -151,6 +163,9 @@ a.brand,
 .block .header {
     background-color: @gologoColor;
 }
+#home-main .block_login {
+    .well;
+}
 .navbar .brand {
     color: @gologoColor;
 }
@@ -160,14 +175,14 @@ a.brand,
 
 .pagelayout-mydashboard.has-user-picture-styles .page-context-header .page-header-image,
 .pagelayout-mypublic.has-user-picture-styles .page-context-header .page-header-image {
-/**
     background-color: @gologoColor;
     border: 3px solid @gologoColorHover;
     box-shadow: 1px 1px 3px 10px @gologoColorHover;
- **/}
+}
 .pagelayout-mydashboard.has-user-picture-styles .page-context-header .page-header-image img.userpicture,
 .pagelayout-mypublic.has-user-picture-styles .page-context-header .page-header-image img.userpicture {
     border: 1px solid @gologoColorHover;
+    box-shadow: 0 0 30px 5px @black;
 }
 .page-context-header span.header-button-title:hover {
     color: @gologoColorHover;
@@ -217,4 +232,82 @@ i.fa:hover {
 
 .usermenu .avatars img {
     border-color: @gologoColor;
+}
+.icon-grey,
+.nav-pills > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:focus > [class^="icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-submenu:hover > a > [class^="icon-"],
+.dropdown-submenu:focus > a > [class^="icon-"],
+a:hover > i.icon-grey {
+    background-image: url([[pix:theme|img/glyphicons-halflings-grey]]);
+}
+.icon-white,
+.nav-pills > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:focus > [class^="icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-submenu:hover > a > [class^="icon-"],
+.dropdown-submenu:focus > a > [class^="icon-"] {
+    background-image: url([[pix:theme|img/glyphicons-halflings-white]]);
+}
+/* Dock
+-------------------------*/
+#dock,
+#dock .controls {
+    position: fixed;
+}
+.dock {
+    top: 60px;
+}
+#dock .controls img{
+    bottom: 20px;
+}
+#dock .dockeditem.firstdockitem {
+    margin-top: 0;
+}
+
+
+/* Navbar breadcrumb-button
+-----------------------------*/
+
+.breadcrumb-button input[type="submit"] {
+    padding: 3px 12px;
+}
+.singlebutton div {
+    margin-top: 5px;
+}
+#page-navbar {
+    padding-right: 5px;
+}
+
+/* Moodle Core Menu */
+.section_action_menu .moodle-actionmenu ul.menu > li {
+    width: 155px;
+}
+.section.current .section_action_menu .moodle-actionmenu ul.menu > li {
+    width: 180px;
+}
+
+.moodle-actionmenu[data-enhanced].show {
+    position: relative;
+    .menu {
+        box-shadow: 3px 3px 10px #abc;
+        img {
+            vertical-align: middle;
+            width: 18px;
+            height: 18px;
+        }
+        .iconsmall,
+        .smallicon {
+            border-radius: 50%;
+            background-color: @white;
+        }
+    }
 }

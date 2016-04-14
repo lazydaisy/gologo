@@ -34,36 +34,63 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG;
 
-        $langs = get_string_manager()->get_list_of_translations();
-        $haslangmenu = $this->lang_menu() != '';
+        $content = parent::render_custom_menu($menu);
+        $mycourses = $this->page->navigation->get('mycourses');
+        if (isloggedin() && $mycourses && $mycourses->has_children()) {
+            $branchlabel = get_string('mycourses');
+            $branchurl   = new moodle_url('/course/index.php');
+            $branchtitle = $branchlabel;
+            $branchsort  = -1;
+            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
 
-        if (!$menu->has_children() && !$haslangmenu) {
-            return '';
-        }
-
-        if ($haslangmenu) {
-            $strlang = get_string('language');
-            $currentlang = current_language();
-            if (isset($langs[$currentlang])) {
-                $currentlang = $langs[$currentlang];
-            } else {
-                $currentlang = $strlang;
-            }
-            $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
-            foreach ($langs as $langtype => $langname) {
-                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+            foreach ($mycourses->children as $coursenode) {
+                $branch->add($coursenode->get_content(),
+                $coursenode->action,
+                $coursenode->get_title());
             }
         }
 
-        // Adds some finishing touches.
-        $content = '<ul class = "nav">';
-        $content .= '<li class = "first divider"></li>'; // Adds an opening divider to the custommenu.
+        $content = '<ul class="nav">';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
-        $content .= '<li class = "last divider"></li>'; // Adds an closing divider to the custommenu.
+        $content .= '</ul>';
+        $patterns = array();
+        $replacements = array();
 
-        return $content.'</ul>';
+        $patterns[0] = '/<ul class="nav">/';
+        $replacements[0] = '<ul class="nav"><li class="first divider"></li>';
+
+        $patterns[1] = '/<\/ul>/';
+        $replacements[1] = '<li class="last divider"></li></ul>';
+
+        $content = preg_replace($patterns, $replacements, $content);
+
+        return $content;
+    }
+
+    /**
+     * This code renders the navbar button to control the display of the custom menu
+     * on smaller screens.
+     *
+     * Do not display the button if the menu is empty.
+     *
+     * @return string HTML fragment
+     */
+    protected function navbar_button() {
+        global $CFG;
+
+        if (empty($CFG->custommenuitems) && $this->lang_menu() == '') {
+            return '';
+        }
+
+        $iconbar = html_writer::tag('i', '', array('class' => 'icon-th-list icon-white'));
+        $button = html_writer::tag('a', $iconbar , array(
+            'class'       => 'btn btn-mini btn-default btn-navbar',
+            'data-toggle' => 'collapse',
+            'data-target' => '.nav-collapse'
+        ));
+        return $button;
     }
 
     /**
@@ -71,7 +98,6 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
      * if we are in developer debug mode) that should be output in the footer area
      * of the page. Designed to be called in theme layout.php files.
      *
-     * Copied from Morecandy theme.
      * @return string HTML fragment.
      */
     public function standard_footer_html() {
@@ -80,13 +106,13 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         $replacements = array();
 
         $patterns[0] = '/<div class="performanceinfo pageinfo">/';
-        $replacements[0] = '<div class="performanceinfo pageinfo well"><i class="fa fa-cogs fa-2x"></i>&nbsp;&nbsp;';
+        $replacements[0] = '<div class="performanceinfo pageinfo well"><i class="fa fa-cogs"></i>';
 
-        $patterns[1] = '/<div class="purgecaches">(<a[^>]+>)([^<]+)<\/a>/';
-        $replacements[1] = '<div class="btn btn-default">${1}<i class="fa fa-trash"></i> ${2} </a>';
+        $patterns[1] = '/<div class="purgecaches"><a([^>]+)>([^<]+)<\/a>/';
+        $replacements[1] = '<div class="purgecaches"><a class="btn btn-default" ${1}><i class="fa fa-trash"></i>&nbsp;${2}</a>';
 
         $patterns[2] = '/<li><a([^>]+)>([^<]+)<\/a>/';
-        $replacements[2] = '<li><a class="btn btn-small btn-default"${1}><i class="fa fa-cogs"></i>&nbsp;&nbsp;${2}</a>';
+        $replacements[2] = '<li><a class="btn btn-small btn-default" ${1}><i class="fa fa-cogs"></i>&nbsp;${2}</a>';
         $output = preg_replace($patterns, $replacements, $output);
 
         return $output;
@@ -119,7 +145,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         } else {
             return html_writer::div('homelink',
                    html_writer::link(new moodle_url('/course/view.php', array('id' => $this->page->course->id)),
-                   html_writer::tag('i', array('class' => 'icon-home')) . ' ' .
+                   html_writer::tag('i', '', array('class' => 'icon-home')) . '&nbsp;' .
                    format_string($this->page->course->shortname, true, array('context' => $this->page->context)),
                    array('class' => 'btn btn-small')));
         }
@@ -205,7 +231,7 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
                 if ($withlinks) {
                     $loggedinas .= '&nbsp;&nbsp;<br>' .
                     html_writer::link(new moodle_url('/login/logout.php', array('sesskey' => sesskey())),
-                    html_writer::tag('i', '', array('class' => 'fa fa-sign-out')) . get_string('logout'),
+                    html_writer::tag('i', '', array('class' => 'fa fa-sign-out')) . ' ' . get_string('logout'),
                                  array('class' => 'btn btn-small btn-default'));
                 }
             }
@@ -244,67 +270,6 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         }
 
         return $loggedinas;
-    }
-
-    /**
-     * Redirects the user by any means possible given the current state
-     *
-     * This function should not be called directly, it should always be called using
-     * the redirect function in lib/weblib.php
-     *
-     * The redirect function should really only be called before page output has started
-     * however it will allow itself to be called during the state STATE_IN_BODY
-     *
-     * @param string $encodedurl The URL to send to encoded if required
-     * @param string $message The message to display to the user if any
-     * @param int $delay The delay before redirecting a user, if $message has been
-     *         set this is a requirement and defaults to 3, set to 0 no delay
-     * @param boolean $debugdisableredirect this redirect has been disabled for
-     *         debugging purposes. Display a message that explains, and don't
-     *         trigger the redirect.
-     * @return string The HTML to display to the user before dying, may contain
-     *         meta refresh, javascript refresh, and may have set header redirects
-     */
-    public function redirect_message($encodedurl, $message, $delay, $debugdisableredirect) {
-        global $CFG;
-        $url = str_replace('&amp;', '&', $encodedurl);
-
-        switch ($this->page->state) {
-            case moodle_page::STATE_BEFORE_HEADER :
-                // No output yet it is safe to delivery the full arsenal of redirect methods.
-                if (!$debugdisableredirect) {
-                    // Don't use exactly the same time here, it can cause problems when both redirects fire at the same time.
-                    $this->metarefreshtag = '<meta http-equiv="refresh" content="'. $delay .'; url='. $encodedurl .'" />'."\n";
-                    $this->page->requires->js_function_call('document.location.replace', array($url), false, ($delay + 3));
-                }
-                $output = $this->header();
-                break;
-            case moodle_page::STATE_PRINTING_HEADER :
-                // We should hopefully never get here.
-                throw new coding_exception('You cannot redirect while printing the page header');
-                break;
-            case moodle_page::STATE_IN_BODY :
-                // We really should not be here, but we can deal with this.
-                debugging("You should really redirect before you start page output");
-                if (!$debugdisableredirect) {
-                    $this->page->requires->js_function_call('document.location.replace', array($url), false, $delay);
-                }
-                $output = $this->opencontainers->pop_all_but_last();
-                break;
-            case moodle_page::STATE_DONE :
-                // Too late to be calling redirect now.
-                throw new coding_exception('You cannot redirect after the entire page has been generated');
-                break;
-        }
-        $output .= $this->notification($message, 'redirectmessage');
-        $output .= html_writer::tag('div',
-                                html_writer::link($encodedurl, get_string('tryingtoredirectyou', 'theme_gologo')),
-                                array('class' => 'continuebutton btn btn-large btn-info'));
-        if ($debugdisableredirect) {
-            $output .= '<p><strong>'.get_string('erroroutput', 'error').'</strong></p>';
-        }
-        $output .= $this->footer();
-        return $output;
     }
 
      /**
@@ -381,4 +346,36 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         return $html;
     }
 
+    /**
+     * Returns HTML to display a "Turn editing on/off" button in a form.
+     *
+     * @param moodle_url $url The URL + params to send through when clicking the button
+     * @return string HTML the button
+     * @copyright 2012 Tiny Bootstrap Project
+     * @author Mary L.Evans
+     */
+    public function edit_button(moodle_url $url) {
+        $content = '';
+        $url->param('sesskey', sesskey());
+        if ($this->page->user_is_editing()) {
+            $url->param('edit', 'off');
+            $btn = 'btn-danger';
+            $icon = 'icon-edit';
+            $alt = get_string('turneditingoff');
+        } else {
+            $url->param('edit', 'on');
+            $btn = 'btn-success';
+            $icon = 'icon-off';
+            $alt = get_string('turneditingon');
+        }
+        $itag = html_writer::tag('i', '', array('class' => 'icon-white ' . $icon));
+        $content .=  html_writer::link($url,
+                     $itag,
+                     array('class' => 'btn btn-mini ' . $btn,
+                           'title' => $alt,
+                           'alt' => $alt));
+
+        return $content;
+
+    }
 }

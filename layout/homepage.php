@@ -34,7 +34,7 @@ $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 // Set default (LTR) layout mark-up for a three column page.
 $regionmain = 'span9 pull-right';
 $sidepre = 'span3 desktop-first-column';
-$homemain = 'span7 desktop-first-colomn';
+$homemain = 'span7 desktop-first-column';
 $homecontent = 'span5 pull-right';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
@@ -53,7 +53,7 @@ echo $OUTPUT->doctype() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body <?php echo $OUTPUT->body_attributes($html->brandlogo); ?>>
+<body <?php echo $OUTPUT->body_attributes($html->bodyclasses); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
@@ -78,13 +78,12 @@ echo $OUTPUT->doctype() ?>
     <?php echo $OUTPUT->full_header(); ?>
 
     <div class="row-fluid">
-
-    <?php echo $OUTPUT->blocks('home-header', 'span-12'); ?>
-
+        <?php echo $OUTPUT->blocks('home-header', 'span-12'); ?>
     </div>
+
     <div id="page-content" class="row-fluid">
 
-        <div id="region-main" class="<?php echo $regionmain ?>">
+        <div id="page-home-content" class="<?php echo $regionmain ?>">
 
             <div id="home-main" class="<?php echo $homemain ?>">
 

@@ -208,6 +208,11 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
     global $CFG;
     $return = new stdClass;
 
+    $return->brandicon = html_writer::link($CFG->wwwroot, '<i class="fa fa-home"></i>', array('class' => 'brand'));
+    if (!empty($page->theme->settings->brandicon)) {
+        $return->brandicon = html_writer::link($CFG->wwwroot, '', array('class' => 'brand'));
+    }
+
     $return->brandlogo = '';
     if (!empty($page->theme->settings->brandlogo)) {
         $return->brandlogo .= '<div id="brand-logo"></div>';
@@ -227,9 +232,12 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->bodyclasses .= ' has-user-picture-styles ';
     }
 
-    $return->brandicon = html_writer::link($CFG->wwwroot, '<i class="fa fa-home"></i>', array('class' => 'brand'));
+    if (empty($page->theme->settings->defaultuserpicturestyles) && !empty($page->theme->settings->brandlogo)) {
+        $return->bodyclasses .= ' has-user-picture-styles has-brand-logo';
+    }
+
     if (!empty($page->theme->settings->brandicon)) {
-        $return->brandicon = html_writer::link($CFG->wwwroot, '', array('class' => 'brand'));
+        $return->bodyclasses .= ' has-brand-icon';
     }
 
     $return->poster1image = '';
