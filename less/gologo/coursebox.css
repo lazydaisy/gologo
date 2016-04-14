@@ -1,0 +1,67 @@
+
+/* Set the position on the dashboard */
+.block_course_overview,
+.block_course_overview .course_list {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Create box for each course */
+.block_course_overview .coursebox {
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 180px;
+    margin: 1px;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #007EBA;
+}
+
+/* Adjust color for disabled categories */
+.block_course_overview .coursebox a.dimmed {
+    border: 1px solid #AAA;
+    width: 180px;
+    height: 180px;
+}
+
+/* Adjust the position of the name */
+.block_course_overview .coursebox h2 {
+    padding: 0;
+    text-align: center;
+}
+
+/* Hide icon 'colapsed' because it makes no sense here */
+.block_course_overview > h2 {
+    background: none;
+}
+
+/* Place image in each category */
+.block_course_overview .course_list #course-0 {
+    background-image: url([[pix:theme|coursebox/course-0]]);
+    background-color: transparent;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: scroll;
+}
+
+/* Upload the image from each category */
+.block_course_overview .course_list #course-1 {background-image: url([[pix:theme|coursebox/1]]);}
+.block_course_overview .course_list #course-2 {background-image: url([[pix:theme|coursebox/2]]);}
+.block_course_overview .course_list #course-3 {background-image: url([[pix:theme|coursebox/3]]);}
+.block_course_overview .course_list #course-4 {background-image: url([[pix:theme|coursebox/4]]);}
+.block_course_overview .course_list #course-5 {background-image: url([[pix:theme|coursebox/5]]);}
+.block_course_overview .course_list #course-6 {background-image: url([[pix:theme|coursebox/6]]);}
+.block_course_overview .course_list #course-7 {background-image: url([[pix:theme|coursebox/7]]);}
+.block_course_overview .course_list #course-8 {background-image: url([[pix:theme|coursebox/8]]);}
+.block_course_overview .course_list #course-9 {background-image: url([[pix:theme|coursebox/9]]);}
+.block_course_overview .course_list #course-10 {background-image: url([[pix:theme|coursebox/10]]);}
+.block_course_overview .course_list #course-11 {background-image: url([[pix:theme|coursebox/11]]);}
+.block_course_overview .course_list #course-12 {background-image: url([[pix:theme|coursebox/12]]);}
+
+/* ... and so on ... */
+
