@@ -369,11 +369,11 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
             $alt = get_string('turneditingon');
         }
         $itag = html_writer::tag('i', '', array('class' => 'icon-white ' . $icon));
-        $content .=  html_writer::link($url,
-                     $itag,
-                     array('class' => 'btn btn-mini ' . $btn,
-                           'title' => $alt,
-                           'alt' => $alt));
+        $content .= html_writer::link($url,
+                    $itag,
+                    array('class' => 'btn btn-mini ' . $btn,
+                          'title' => $alt,
+                          'alt' => $alt));
 
         return $content;
 

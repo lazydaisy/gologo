@@ -122,26 +122,26 @@ class theme_gologo_format_topics_renderer extends format_topics_renderer {
                 array('courseid' => $course->id,
                       'increase' => true,
                       'sesskey' => sesskey()));
-            $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
+                $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
 
-            echo html_writer::link($url,
+                echo html_writer::link($url,
                         $itag . ' ' . $addsection,
                         array('class' => $classes . ' btn btn-default', 'title' => $addsection));
 
-            if ($course->numsections > 0) {
-                // Reduce number of sections sections.
-                $deletesection = get_string('deletesection', 'theme_gologo');
-                $icon = 'fa-chevron-up';
-                $classes = 'reduce-sections';
-                $url = new moodle_url('/course/changenumsections.php',
+                if ($course->numsections > 0) {
+                    // Reduce number of sections sections.
+                    $deletesection = get_string('deletesection', 'theme_gologo');
+                    $icon = 'fa-chevron-up';
+                    $classes = 'reduce-sections';
+                    $url = new moodle_url('/course/changenumsections.php',
                     array('courseid' => $course->id,
                           'increase' => false,
                           'sesskey' => sesskey()));
-                $itag = $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
+                    $itag = $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
 
-                echo html_writer::link($url,
-                            $itag . ' ' . $deletesection,
-                            array('class' => $classes . ' btn btn-default', 'title' => $deletesection));
+                    echo html_writer::link($url,
+                                $itag . ' ' . $deletesection,
+                                array('class' => $classes . ' btn btn-default', 'title' => $deletesection));
             }
             echo html_writer::end_tag('div');
         } else {
