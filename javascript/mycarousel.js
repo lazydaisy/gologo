@@ -1,6 +1,6 @@
 !function ($) {
     $(function(){
-        // carousel gologo
+        // Carousel gologo.
         $('#myCarousel').carousel()
     })
 }
