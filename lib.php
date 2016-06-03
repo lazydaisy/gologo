@@ -285,16 +285,3 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
     return $return;
 
 }
-
-/**
- * Initialize page
- * @param moodle_page $page
- */
-function theme_gologo_page_init(moodle_page $page) {
-    $page->requires->jquery();
-    $page->requires->jquery_plugin('bootstrap', 'theme_gologo');
-    $page->requires->jquery_plugin('dropdown', 'theme_gologo');
-    $page->requires->jquery_plugin('carousel', 'theme_gologo');
-    $page->requires->jquery_plugin('collapse', 'theme_gologo');
-
-}
