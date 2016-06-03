@@ -58,6 +58,7 @@ function theme_gologo_process_css($css, $theme) {
     $poster2image = $theme->setting_file_url('poster2image', 'poster2image');
     $css = theme_gologo_set_poster2image($css, $poster2image);
 
+
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
@@ -240,6 +241,10 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
         $return->bodyclasses .= ' has-brand-icon';
     }
 
+    if (!empty($page->theme->settings->enablemycourses)) {
+        $return->bodyclasses .= ' has-enabled-mycourses ';
+    }
+
     $return->poster1image = '';
     if (!empty($page->theme->settings->poster1image)) {
         $return->poster1image = html_writer::tag('div', '', array('id' => 'poster1image-thumbnail'));
@@ -278,4 +283,18 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
     }
 
     return $return;
+
+}
+
+/**
+ * Initialize page
+ * @param moodle_page $page
+ */
+function theme_gologo_page_init(moodle_page $page) {
+    $page->requires->jquery();
+    $page->requires->jquery_plugin('bootstrap', 'theme_gologo');
+    $page->requires->jquery_plugin('dropdown', 'theme_gologo');
+    $page->requires->jquery_plugin('carousel', 'theme_gologo');
+    $page->requires->jquery_plugin('collapse', 'theme_gologo');
+
 }

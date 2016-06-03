@@ -41,7 +41,7 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->editor_sheets = array();
 $THEME->enable_dock = true;
 
-$THEME->javascripts_footer = array('gologo');
+$THEME->javascripts_footer = array('mycarousel');
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
@@ -75,7 +75,7 @@ $THEME->layouts = array(
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'homepage.php',
+        'file' => 'frontpage.php',
         'regions' => array('side-pre', 'home-header', 'home-main', 'home-content', 'home-footer'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
@@ -100,7 +100,7 @@ $THEME->layouts = array(
         'defaultregion' => 'side-pre',
     ),
     'login' => array(
-        'file' => 'default.php',
+        'file' => 'login.php',
         'regions' => array(),
         'options' => array('langmenu' => true),
     ),

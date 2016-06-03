@@ -62,6 +62,9 @@ $string['deletesection'] = 'Delete section';
 $string['defaultuserpicturestyles'] = 'Default user picture styles.';
 $string['defaultuserpicturestylesdesc'] = 'This setting allows you to either use the theme styled user picture or the default user picture styles as normally seen in Moodle.';
 
+$string['enablemycourses'] = 'Enable mycourses as tiled images';
+$string['enablemycoursesdesc'] = 'This setting allows you to choose to display mycourses in the courses overview block in mydashboard as tiles.<br>If you leave this setting unchecked the default course listings will be used instead';
+
 $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
 
@@ -70,6 +73,8 @@ $string['gologocolordesc'] = 'This setting allows you to choose a base colour fo
 
 $string['invert'] = 'Invert navbar';
 $string['invertdesc'] = 'This setting allows you to swap between a white or a solid colour background for the top navbar.';
+
+$string['login'] = 'Please sign in or register - thank you!';
 
 $string['pluginname'] = 'GoLogo';
 
@@ -97,5 +102,3 @@ $string['region-home-main'] = 'Home-main';
 $string['region-lower-level'] = 'Bottom';
 $string['region-upper-level'] = 'Top';
 $string['region-side-pre'] = 'Left';
-
-$string['tryingtoredirectyou'] = '<span class="text-center">We are trying to redirect you click to continue...<br><i class="fa fa-spinner fa-pulse fa-3x"></i><span>';

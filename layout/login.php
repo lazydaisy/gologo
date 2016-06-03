@@ -34,14 +34,19 @@ $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 // Set default (LTR) layout mark-up for a three column page.
 $regionmain = 'span9 pull-right';
 $sidepre = 'span3 desktop-first-column';
+$footerfirst = 'span6 desktop-first-column';
+$footerlast = 'span6 pull-right';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
     $regionmain = 'span9';
     $sidepre = 'span3 pull-right';
+    $footerfirst = 'span6 pull-right';
+    $footerlast = 'span6 desktop-first-column';
+
 }
 
 echo $OUTPUT->doctype() ?>
-<html <?php echo $OUTPUT->htmlattributes($html->bodyclasses); ?>>
+<html <?php echo $OUTPUT->htmlattributes(); ?>>
 <head>
     <title><?php echo $OUTPUT->page_title(); ?></title>
     <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
@@ -58,46 +63,14 @@ echo $OUTPUT->doctype() ?>
         <div class="container-fluid">
             <?php echo $html->brandicon; ?>
             <?php echo $OUTPUT->navbar_button(); ?>
-            <?php echo $OUTPUT->user_menu(); ?>
-            <div class="nav-collapse collapse">
-                <?php echo $OUTPUT->custom_menu(); ?>
-                <ul class="nav pull-right">
-                    <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
-                </ul>
-            </div>
         </div>
     </nav>
 </header>
 
 <div id="page" class="container-fluid">
-
-<div id="page-header-outer" class="row-fluid">
-<div id="poster1" class="span3 well">
-    <ul class="thumbnails">
-      <li class="span12">
-        <div class="thumbnail">
-            <?php echo $html->poster1image;?>
-            <?php echo $html->poster1heading;?>
-            <?php echo $html->poster1caption;?>
-        </div>
-      </li>
-    </ul>
-</div>
-<div class="span6 well">
-    <?php echo $OUTPUT->full_header(); ?>
-</div>
-<div id="poster2" class="span3 well">
-    <ul class="thumbnails">
-      <li class="span12">
-        <div class="thumbnail">
-            <?php echo $html->poster2image;?>
-            <?php echo $html->poster2heading;?>
-            <?php echo $html->poster2caption;?>
-        </div>
-      </li>
-    </ul>
-</div>
-</div>
+    <div id=page-header">
+        <h1><?php echo get_string('login', 'theme_gologo'); ?></h1>
+    </div>
     <div id="page-content" class="row-fluid">
         <section id="region-main" class="<?php echo $regionmain; ?>">
             <?php
@@ -110,8 +83,6 @@ echo $OUTPUT->doctype() ?>
     </div>
 
     <div id="page-footer" class="row-fluid">
-
-        <div id="course-footer"><?php echo $OUTPUT->course_footer(); ?></div>
 
         <?php {
             echo $OUTPUT->page_doc_link();

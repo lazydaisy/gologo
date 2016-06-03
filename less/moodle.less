@@ -3,31 +3,85 @@
  */
  @import "../../bootstrapbase/less/moodle.less";
  @import "gologo/coursebox";
+ @import "gologo/carousel";
+
 
 // Set theme colours.
 
 @gologoColor:                            #3291D3;
 @gologoLinkColor:                        @white;
 @gologoColorHover:                       lighten(@gologoColor, 15%);
+@gologoLinkColorFade:                    fade(@white, 30%);
 
 // Inverted navbar
 @navbarInverseBackground:                @gologoColor;
 @navbarInverseBackgroundHighlight:       @gologoColor;
 @navbarInverseBorder:                    @gologoColor;
-
 @navbarInverseText:                      @gologoLinkColor;
 @navbarInverseLinkColor:                 @gologoLinkColor;
 @navbarInverseLinkColorHover:            @gologoColorHover;
 @navbarInverseLinkColorActive:           @gologoColorHover;
 @navbarInverseLinkBackgroundHover:       darken(@gologoColor, 15%);
 @navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
-
 @navbarInverseBrandColor:                @gologoLinkColor;
+@wellBackgroundColor:                    fade(@gologoColor, 30%);
 
 @iconSpritePath:          "../img/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
 @iconGreySpritePath:     "../img/glyphicons-halflings-grey.png";
 
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(mix(@warningText, @warningBackground, 50%), 3%);
+
+@errorText:               #b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(mix(@errorText, @errorBackground, 50%), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(mix(@successText, @successBackground, 50%), 3%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(mix(@infoText, @infoBackground, 50%), 3%);
+
+@baseBorderRadius:        0;
+
+/* Alerts
+-------------------------*/
+.alert {
+    padding: 8px 14px;
+    border-width: 0 5px;
+    border-style: solid;
+    border-radius: 0;
+    .close {
+        color: #333;
+        margin-right: 10px;
+        opacity: 1;
+    }
+}
+.pagelayout-admin {
+    .adminwarning,
+    .adminerror,
+    .adminsuccess,
+    .admininfo,
+    .releasenoteslink {
+        padding: 10px 20px;
+        border-radius: 0;
+        margin: 0 auto 10px;
+        border-style: solid;
+        border-width: 0 5px;
+        width: 90%;
+
+    }
+}
+
+#page-admin-index .releasenoteslink,
+#page-admin-index .adminwarning,
+#page-admin-index .adminerror {
+    border-radius: 0;
+}
 /* Navbar
 -------------------------*/
 .navbar-inverse {
@@ -162,6 +216,7 @@ a.brand,
 }
 .block .header {
     background-color: @gologoColor;
+    padding: 10px 0;
 }
 #home-main .block_login {
     .well;
@@ -189,6 +244,7 @@ a.brand,
 }
 #page-navbar {
     background-color: @gologoColor;
+    padding: 0;
 }
 #page-navbar .breadcrumb > li {
     color: @white;
@@ -230,33 +286,16 @@ i.fa:hover {
     color: @gologoColorHover;
 }
 
+.navbar-inverse .usermenu .moodle-actionmenu[data-enhanced] .menu .menu-action.icon img,
+.navbar-inverse .usermenu .moodle-actionmenu[data-enhanced] .menu .menu-action.icon:hover img {
+    margin-right: 5px;
+    height: 20px;
+    width: 20px;
+}
 .usermenu .avatars img {
     border-color: @gologoColor;
 }
-.icon-grey,
-.nav-pills > .active > a > [class^="icon-"],
-.nav-list > .active > a > [class^="icon-"],
-.navbar-inverse .nav > .active > a > [class^="icon-"],
-.navbar-inverse .nav > .active > a > [class*=" icon-"],
-.dropdown-menu > li > a:hover > [class^="icon-"],
-.dropdown-menu > li > a:focus > [class^="icon-"],
-.dropdown-menu > .active > a > [class^="icon-"],
-.dropdown-submenu:hover > a > [class^="icon-"],
-.dropdown-submenu:focus > a > [class^="icon-"],
-a:hover > i.icon-grey {
-    background-image: url([[pix:theme|img/glyphicons-halflings-grey]]);
-}
-.icon-white,
-.nav-pills > .active > a > [class^="icon-"],
-.nav-list > .active > a > [class^="icon-"],
-.navbar-inverse .nav > .active > a > [class^="icon-"],
-.dropdown-menu > li > a:hover > [class^="icon-"],
-.dropdown-menu > li > a:focus > [class^="icon-"],
-.dropdown-menu > .active > a > [class^="icon-"],
-.dropdown-submenu:hover > a > [class^="icon-"],
-.dropdown-submenu:focus > a > [class^="icon-"] {
-    background-image: url([[pix:theme|img/glyphicons-halflings-white]]);
-}
+
 /* Dock
 -------------------------*/
 #dock,
@@ -273,41 +312,44 @@ a:hover > i.icon-grey {
     margin-top: 0;
 }
 
-
 /* Navbar breadcrumb-button
 -----------------------------*/
 
 .breadcrumb-button input[type="submit"] {
     padding: 3px 12px;
 }
-.singlebutton div {
-    margin-top: 5px;
-}
 #page-navbar {
     padding-right: 5px;
 }
 
-/* Moodle Core Menu */
-.section_action_menu .moodle-actionmenu ul.menu > li {
-    width: 155px;
-}
-.section.current .section_action_menu .moodle-actionmenu ul.menu > li {
-    width: 180px;
+/* Frontpage Course List
+-------------------------*/
+.coursebox > .info > .coursename a {
+    line-height: 1.4;
 }
 
-.moodle-actionmenu[data-enhanced].show {
-    position: relative;
-    .menu {
-        box-shadow: 3px 3px 10px #abc;
-        img {
-            vertical-align: middle;
-            width: 18px;
-            height: 18px;
-        }
-        .iconsmall,
-        .smallicon {
-            border-radius: 50%;
-            background-color: @white;
-        }
-    }
+h2.adminwarning {
+    background-color: transparent;
+    color: @warningText;
+    border: 0 none;
+}
+h2.adminerror {
+    background-color: transparent;
+    color: @errorText;
+    border: 0 none;
+}
+
+.loginbox.twocolumns {
+    .hero-unit;
+    background-color: @wellBackgroundColor;
+    padding: 0;
+    border: 40px solid @gologoColor;
+    border-radius: 0;
+}
+
+.pagelayout-frontpage a[title="Edit summary"] img.iconsmall {
+    border-color: @gologoColor;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
 }

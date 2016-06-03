@@ -227,7 +227,9 @@ h1, h2, h3, h4, h5, h6,
 
 /* Experimental - Frontpage
 -----------------------------*/
-.block .header .commands img.iconsmall {
+
+.block .header .commands img.iconsmall,
+.pagelayout-frontpage a[title="Edit summary"] img.iconsmall {
     background-color: #F3F9FD; /* adds light background */
     border: 2px solid #1A4868; /* adds 2px dark border */
     border-radius: 5px; /* adds rounded corners in modern browsers */

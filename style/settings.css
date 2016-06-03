@@ -5,13 +5,13 @@
 -------------------------*/
 .has-brand-icon a.brand {
     background-image: url([[setting:brandicon]]);
-    background-position: 20px 50%;
+    background-position: left center;
     background-repeat: no-repeat;
     display: block;
     height: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    width: 20px;
+    width: 25px;
 }
 
 .has-brand-icon.dir-rtl a.brand {

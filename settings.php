@@ -42,10 +42,18 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
-    // Select default user picture styles.
+    // Select default user picture styles in mydashboard.
     $name = 'theme_gologo/defaultuserpicturestyles';
     $title = get_string('defaultuserpicturestyles', 'theme_gologo');
     $description = get_string('defaultuserpicturestylesdesc', 'theme_gologo');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $settings->add($setting);
+
+   // Enable mycourses as tiles in mydashboard.
+    $name = 'theme_gologo/enablemycourses';
+    $title = get_string('enablemycourses', 'theme_gologo');
+    $description = get_string('enablemycoursesdesc', 'theme_gologo');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
