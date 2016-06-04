@@ -1,6 +1,5 @@
 !function ($) {
     $(function(){
-        // Carousel gologo.
-        $('#myCarousel').carousel()
-    })
-}
+        $('#myCarousel').carousel();
+    });
+};
