@@ -2,7 +2,6 @@
  * Import all the rules from the parent.
  */
  @import "../../bootstrapbase/less/moodle.less";
- @import "gologo/coursebox";
  @import "gologo/carousel";
 
 
@@ -13,16 +12,16 @@
 @gologoColorHover:                       lighten(@gologoColor, 15%);
 @gologoLinkColorFade:                    fade(@white, 30%);
 
-// Inverted navbar
+// Inverted navbar.
 @navbarInverseBackground:                @gologoColor;
-@navbarInverseBackgroundHighlight:       @gologoColor;
-@navbarInverseBorder:                    @gologoColor;
+@navbarInverseBackgroundHighlight:       @navbarInverseBackground;
+@navbarInverseBorder:                    @navbarInverseBackgroundHighlight;
 @navbarInverseText:                      @gologoLinkColor;
 @navbarInverseLinkColor:                 @gologoLinkColor;
 @navbarInverseLinkColorHover:            @gologoColorHover;
 @navbarInverseLinkColorActive:           @gologoColorHover;
 @navbarInverseLinkBackgroundHover:       darken(@gologoColor, 15%);
-@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+@navbarInverseLinkBackgroundActive:      darken(@gologoColor, 15%);
 @navbarInverseBrandColor:                @gologoLinkColor;
 @wellBackgroundColor:                    fade(@gologoColor, 30%);
 
@@ -47,6 +46,22 @@
 @infoBorder:              darken(mix(@infoText, @infoBackground, 50%), 3%);
 
 @baseBorderRadius:        0;
+@btnPrimaryBackground:    @gologoColor;
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            @gologoLinkColor;
+@dropdownBorder:                @navbarInverseLinkBackgroundHover;
+@dropdownDividerTop:            @navbarInverseLinkBackgroundHover;
+@dropdownDividerBottom:         @dropdownBackground;
+
+@dropdownLinkColor:             @grayDark;
+@dropdownLinkColorHover:        @gologoLinkColor;
+@dropdownLinkColorActive:       @gologoLinkColor;
+
+@dropdownLinkBackgroundActive:  @gologoLinkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+
 
 /* Alerts
 -------------------------*/
@@ -352,4 +367,14 @@ h2.adminerror {
     border-radius: 50%;
     height: 20px;
     width: 20px;
+}
+
+.navbar-inverse .dropdown.langmenu.open ul.dropdown-menu > li.last.divider {
+    display: none;
+}
+
+.navbar-inverse .dropdown ul.dropdown-menu > li > a:hover {
+    background: none;
+    background-color: @gologoColor;
+    color: gologoLinkColor;
 }

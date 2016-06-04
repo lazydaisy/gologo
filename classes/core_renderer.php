@@ -359,21 +359,17 @@ class theme_gologo_core_renderer extends theme_bootstrapbase_core_renderer {
         $url->param('sesskey', sesskey());
         if ($this->page->user_is_editing()) {
             $url->param('edit', 'off');
-            $btn = 'btn-danger';
-            $icon = 'icon-edit';
+            $icon = ' fa-toggle-on';
             $alt = get_string('turneditingoff');
         } else {
             $url->param('edit', 'on');
-            $btn = 'btn-success';
-            $icon = 'icon-off';
+             $icon = ' fa-toggle-off';
             $alt = get_string('turneditingon');
         }
-        $itag = html_writer::tag('i', '', array('class' => 'icon-white ' . $icon));
+        $itag = html_writer::tag('i', '', array('class' => 'fa ' . $icon));
         $content .= html_writer::link($url,
                     $itag,
-                    array('class' => 'btn btn-mini ' . $btn,
-                          'title' => $alt,
-                          'alt' => $alt));
+                    array('title' => $alt));
 
                     return $content;
 

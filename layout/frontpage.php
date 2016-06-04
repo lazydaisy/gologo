@@ -65,14 +65,18 @@ echo $OUTPUT->doctype() ?>
 
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
-            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <!-- Responsive Navbar Part 1:
+                Button for triggering responsive navbar (not covered in tutorial).
+                Include responsive CSS to utilize. -->
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
             <?php echo $html->brandicon; ?>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <!-- Responsive Navbar Part 2:
+                Place all navbar contents you want collapsed within
+                .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="#">Home</a></li>
@@ -113,142 +117,183 @@ echo $OUTPUT->doctype() ?>
             <li data-slide-to="1" data-target="#myCarousel"></li>
             <li data-slide-to="2" data-target="#myCarousel"></li>
         </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="<?php echo $OUTPUT->pix_url('carousel/slide-01', 'theme'); ?>" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="<?php echo $OUTPUT->pix_url('carousel/slide-01', 'theme'); ?>" alt="">
+                <div class="container">
+                    <div class="carousel-caption">
+                    <h1>Example headline.</h1>
+                    <p class="lead">
+                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                        Donec id elit non mi porta gravida at eget metus.
+                        Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    </p>
+                    <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="<?php echo $OUTPUT->pix_url('carousel/slide-02', 'theme'); ?>" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            <div class="item">
+                <img src="<?php echo $OUTPUT->pix_url('carousel/slide-02', 'theme'); ?>" alt="">
+                <div class="container">
+                    <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p class="lead">
+                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                        Donec id elit non mi porta gravida at eget metus.
+                        Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    </p>
+                    <a class="btn btn-large btn-primary" href="#">Learn more</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="<?php echo $OUTPUT->pix_url('carousel/slide-03', 'theme'); ?>" alt="">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+            <div class="item">
+                <img src="<?php echo $OUTPUT->pix_url('carousel/slide-03', 'theme'); ?>" alt="">
+                <div class="container">
+                    <div class="carousel-caption">
+                    <h1>One more for good measure.</h1>
+                    <p class="lead">
+                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                        Donec id elit non mi porta gravida at eget metus.
+                        Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    </p>
+                    <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a> -->
-      <!--<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a> -->
-
     </div><!-- /.carousel -->
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="container marketing">
+    <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-    <div class="span4">
-      <i class="fa fa-cab fa-5x"></i>
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div><!-- /.span4 -->
-    <div class="span4">
-      <i class="fa fa-car fa-5x"></i>
-      <h2>Heading</h2>
-      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div><!-- /.span4 -->
-    <div class="span4">
-      <i class="fa fa-bus fa-5x"></i>
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
-    </div><!-- /.span4 -->
-    </div><!-- /.row -->
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="span4">
+                <i class="fa fa-cab fa-5x"></i>
+                <h2>Heading</h2>
+
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.
+                    Nullam id dolor id nibh ultricies vehicula ut id elit.
+                    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+                </p>
+
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <i class="fa fa-car fa-5x"></i>
+                <h2>Heading</h2>
+                <p>
+                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    Cras mattis consectetur purus sit amet fermentum.
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                </p>
+
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!-- /.span4 -->
+            <div class="span4">
+                <i class="fa fa-bus fa-5x"></i>
+                <h2>Heading</h2>
+                <p>
+                    Donec sed odio dui.
+                    Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Vestibulum id ligula porta felis euismod semper.
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                    ut fermentum massa justo sit amet risus.
+                </p>
+
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!-- /.span4 -->
+        </div><!-- /.row -->
 
 
-    <!-- START THE FEATURETTES -->
+        <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider">
+        <hr class="featurette-divider">
 
-    <div class="featurette">
-    <i class="pull-right fa fa-500px fa-5x"></i>
-    <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-    <i class="pull-left fa fa-500px fa-5x"></i>
-    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-    <i class="pull-right fa fa-500px fa-5x"></i>
-    <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-
-    <div id="page">
-
-    <div class="row-fluid">
-        <?php echo $OUTPUT->blocks('home-header', 'span-12'); ?>
-    </div>
-
-    <div id="page-content" class="row-fluid">
-
-        <div id="page-home-content" class="<?php echo $regionmain ?>">
-
-            <div id="home-main" class="<?php echo $homemain ?>">
-                <?php
-                    echo $OUTPUT->blocks('home-main', 'span12');
-                    echo $OUTPUT->main_content();
-                ?>
-            </div>
-            <div id="home-content" class="<?php echo $homecontent ?>">
-                <?php echo $OUTPUT->blocks('home-content', 'span12'); ?>
-            </div>
+        <div class="featurette">
+            <i class="pull-right fa fa-500px fa-5x"></i>
+            <h2 class="featurette-heading">First featurette headling.
+            <span class="muted">It'll blow your mind.</span></h2>
+            <p class="lead">
+                Donec ullamcorper nulla non metus auctor fringilla.
+                Vestibulum id ligula porta felis euismod semper.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Fusce dapibus, tellus ac cursus commodo.
+            </p>
         </div>
 
-        <?php echo $OUTPUT->blocks('side-pre', $sidepre); ?>
-    </div>
+        <hr class="featurette-divider">
 
-    <div id="page-footer">
+        <div class="featurette">
+            <i class="pull-left fa fa-500px fa-5x"></i>
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="muted">See for yourself.</span></h2>
+            <p class="lead">
+                Donec ullamcorper nulla non metus auctor fringilla.
+                Vestibulum id ligula porta felis euismod semper.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Fusce dapibus, tellus ac cursus commodo.
+            </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="featurette">
+            <i class="pull-right fa fa-500px fa-5x"></i>
+            <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
+            <p class="lead">
+                Donec ullamcorper nulla non metus auctor fringilla.
+                Vestibulum id ligula porta felis euismod semper.
+                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Fusce dapibus, tellus ac cursus commodo.
+            </p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+        <div id="page">
+
         <div class="row-fluid">
-            <?php echo $OUTPUT->blocks('home-footer', 'span-12'); ?>
+            <?php echo $OUTPUT->blocks('home-header', 'span-12'); ?>
         </div>
 
-        <?php {
-            echo $OUTPUT->page_doc_link();
-            echo $OUTPUT->login_info();
-            echo $html->footnote;
-        } ?>
+        <div id="page-content" class="row-fluid">
 
-        <?php echo $OUTPUT->standard_footer_html() ?>
-    </div>
+            <div id="page-home-content" class="<?php echo $regionmain ?>">
 
-    <?php echo $OUTPUT->standard_end_of_body_html() ?>
+                <div id="home-main" class="<?php echo $homemain ?>">
+                    <?php
+                        echo $OUTPUT->blocks('home-main', 'span12');
+                        echo $OUTPUT->main_content();
+                    ?>
+                </div>
+                <div id="home-content" class="<?php echo $homecontent ?>">
+                    <?php echo $OUTPUT->blocks('home-content', 'span12'); ?>
+                </div>
+            </div>
 
-</div><!-- /.container (marketing) -->
+            <?php echo $OUTPUT->blocks('side-pre', $sidepre); ?>
+        </div>
+
+        <div id="page-footer">
+            <div class="row-fluid">
+                <?php echo $OUTPUT->blocks('home-footer', 'span-12'); ?>
+            </div>
+
+            <?php {
+                echo $OUTPUT->page_doc_link();
+                echo $OUTPUT->login_info();
+                echo $html->footnote;
+            } ?>
+
+            <?php echo $OUTPUT->standard_footer_html() ?>
+        </div>
+        <?php echo $OUTPUT->standard_end_of_body_html() ?>
+    </div><!-- /.container (marketing) -->
 </body>
 </html>
