@@ -58,7 +58,6 @@ function theme_gologo_process_css($css, $theme) {
     $poster2image = $theme->setting_file_url('poster2image', 'poster2image');
     $css = theme_gologo_set_poster2image($css, $poster2image);
 
-
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
         $customcss = $theme->settings->customcss;
@@ -239,10 +238,6 @@ function theme_gologo_get_html_for_settings(renderer_base $output, moodle_page $
 
     if (!empty($page->theme->settings->brandicon)) {
         $return->bodyclasses .= ' has-brand-icon';
-    }
-
-    if (!empty($page->theme->settings->enablemycourses)) {
-        $return->bodyclasses .= ' has-enabled-mycourses ';
     }
 
     $return->poster1image = '';

@@ -50,14 +50,6 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
-   // Enable mycourses as tiles in mydashboard.
-    $name = 'theme_gologo/enablemycourses';
-    $title = get_string('enablemycourses', 'theme_gologo');
-    $description = get_string('enablemycoursesdesc', 'theme_gologo');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $settings->add($setting);
-
     // Gologo color setting.
     $name = 'theme_gologo/gologocolor';
     $title = get_string('gologocolor', 'theme_gologo');
