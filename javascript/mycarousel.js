@@ -1,5 +1,3 @@
-!function ($) {
-    $(function(){
-        $('#myCarousel').carousel();
-    });
-};
+$(document).ready(function(){
+   $('#myCarousel').carousel();
+});
