@@ -41,7 +41,7 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->editor_sheets = array();
 $THEME->enable_dock = true;
 
-$THEME->javascripts_footer = array('mycarousel');
+$THEME->javascripts_footer = array('gologo');
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.

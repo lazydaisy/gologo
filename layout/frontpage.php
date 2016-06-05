@@ -91,11 +91,11 @@ echo $OUTPUT->doctype() ?>
 
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide">
+<div id="mycarousel" class="carousel slide">
     <ol class="carousel-indicators">
         <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-        <li data-slide-to="1" data-target="#myCarousel"></li>
-        <li data-slide-to="2" data-target="#myCarousel"></li>
+        <li data-slide-to="1" data-target="#mycarousel"></li>
+        <li data-slide-to="2" data-target="#mycarousel"></li>
     </ol>
     <div class="carousel-inner">
         <div class="item active">
@@ -274,6 +274,8 @@ echo $OUTPUT->doctype() ?>
         <?php echo $OUTPUT->standard_footer_html() ?>
     </div>
     <?php echo $OUTPUT->standard_end_of_body_html() ?>
+
 </div><!-- /.container (marketing) -->
+
 </body>
 </html>
