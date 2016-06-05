@@ -24,24 +24,3 @@ require(['core/first'], function() {
         });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function(){
-    $('#myCarousel').carousel();
-});
