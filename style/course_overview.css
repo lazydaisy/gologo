@@ -1,0 +1,17 @@
+/* Shrink course overview activity div
+-------------------------------------*/
+.block_course_overview .coursebox {
+    border: 1px solid #889900;
+    border-radius: 0;
+    display: inline-block;
+    margin-right: 2%;
+    padding: 15px;
+    width: 43%;
+}
+.block_course_overview .content {
+    margin: 0;
+}
+.block_course_overview .activity_overview {
+    padding: 2px;
+    width: 30px;
+}

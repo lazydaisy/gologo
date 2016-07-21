@@ -90,7 +90,10 @@ echo $OUTPUT->doctype() ?>
             echo $OUTPUT->course_content_header();
             echo $OUTPUT->main_content();
             echo $OUTPUT->course_content_footer();
-            ?>
+            if (strpos($this->page->pagetype, 'course-view') === 0) {
+                echo '<div class="text-center"><a class="btn btn-default" href="' . $CFG->wwwroot . '/my/">' .
+                    get_string('mymoodle', 'admin') . '</a>';
+            } ?>
         </section>
         <?php echo $OUTPUT->blocks('side-pre', $sidepre); ?>
     </div>

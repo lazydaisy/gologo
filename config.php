@@ -27,7 +27,7 @@ $THEME->name = 'gologo';
 
 $THEME->doctype = 'html5';
 $THEME->parents = array('bootstrapbase');
-$THEME->sheets = array('font-awesome', 'glyphicons-halflings', 'gologo', 'settings');
+$THEME->sheets = array('font-awesome', 'glyphicons-halflings', 'gologo', 'course_overview',  'settings');
 $THEME->lessfile = 'moodle';
 $THEME->parents_exclude_sheets = array('bootstrapbase' => array('moodle'), 'clean' => array('custom'));
 $THEME->lessvariablescallback = 'theme_gologo_less_variables';
