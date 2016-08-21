@@ -32,14 +32,10 @@
 $html = theme_gologo_get_html_for_settings($OUTPUT, $PAGE);
 
 // Set default (LTR) layout mark-up for a three column page.
-$regionmain = 'span9 pull-right';
-$sidepre = 'span3 desktop-first-column';
 $homemain = 'span7 desktop-first-column';
 $homecontent = 'span5 pull-right';
 // Reset layout mark-up for RTL languages.
 if (right_to_left()) {
-    $regionmain = 'span9 desktop-first-column';
-    $sidepre = 'span3 pull-right';
     $homemain = 'span7 pull-right';
     $homecontent = 'span5 desktop-first-column';
 }
@@ -243,9 +239,7 @@ echo $OUTPUT->doctype() ?>
     </div>
 
     <div id="page-content" class="row-fluid">
-
-        <div id="page-home-content" class="<?php echo $regionmain ?>">
-
+        <div id="page-home-content" class="span12">
             <div id="home-main" class="<?php echo $homemain ?>">
                 <?php
                     echo $OUTPUT->blocks('home-main', 'span12');
@@ -256,13 +250,14 @@ echo $OUTPUT->doctype() ?>
                 <?php echo $OUTPUT->blocks('home-content', 'span12'); ?>
             </div>
         </div>
-
-        <?php echo $OUTPUT->blocks('side-pre', $sidepre); ?>
     </div>
 
     <div id="page-footer">
-        <div class="row-fluid">
-            <?php echo $OUTPUT->blocks('home-footer', 'span-12'); ?>
+        <div class="row-fluid"><?php
+            echo $OUTPUT->blocks('home-footer', 'span12');
+            echo $OUTPUT->blocks('left-footer', 'span4 desktop-first-column');
+            echo $OUTPUT->blocks('mid-footer', 'span4');
+            echo $OUTPUT->blocks('right-footer', 'span4 pull-right'); ?>
         </div>
 
         <?php {
